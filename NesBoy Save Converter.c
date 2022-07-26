@@ -8,7 +8,7 @@ void nesload (int *x, int *X)
 	int i, j;
 	int N[14] = {51, 57, 63, 75, 87, 99, 105, 111, 117, 123, 129, 135, 141}; //indirizzi della memoria da controllare per i pokèmon della squadra
 	FILE *np; // dichiarazione puntatore file
-	np = fopen("C:\\Users\\cosot\\Desktop\\Pokemon Yellow - Nes version.sav", "rb"); //apertura del file
+	np = fopen("C:\\Users\\cosot\\Desktop\\NesBoy Save Converter\\Pokemon Yellow - Nes version.sav", "rb"); //apertura del file (write here the path of the save file you want to open)
 	if(np == 0) // se il puntatore restituisce "NULL", allora l'apertura del file non è andata a buon fine
 	printf("Error! The program was not able to open the NES save file.\n"); 
 	else
@@ -89,7 +89,7 @@ void gbup(int *X)
 	int i;
 	//srand(time(NULL)); //questo comando ha a che fare con la generazione casuale dei numeri, più precisamente con la gestione del tempo.
 	FILE *gp; // dichiarazione puntatore file
-	gp = fopen("C:\\Users\\cosot\\Desktop\\nes.pk2", "wb"); //apertura del file
+	gp = fopen("C:\\Users\\cosot\\Desktop\\NesBoy Save Converter\\nes.pk2", "wb"); //apertura del file
 	if(gp == 0) // se il puntatore restituisce "NULL", allora l'apertura del file non è andata a buon fine
 	printf("Error! The program was not able to create the .pk2 file.\n");
 	else
