@@ -1,7 +1,7 @@
 
 #include <stdio.h>
-//#include <stdlib.h>
-//#include <time.h>
+#include <stdlib.h>
+#include <time.h>
 
 void nesload (int *x, int *X)
 {
@@ -80,14 +80,16 @@ void in_conv(int *X, int *Y)
 {
 	int i;
 	int G[14] = {3, 34, 38, 40, 13, 5, 6, 7, 8, 26, 27, 28, 29}; //vettore contenente una tabella di conversione degli indirizzi 
+	srand(time(NULL)); //questo comando ha a che fare con la generazione casuale dei numeri, più precisamente con la gestione del tempo.
 	for (i = 0; i<13; i++)
 	*(Y+G[i]) = *(X+i);
+	*(Y+24) = (rand() % 255) + 1; //randomizzo gli IV
+	*(Y+25) = (rand() % 255) + 1; //randomizzo gli IV
 }
 
 void gbup(int *X)
 {
 	int i;
-	//srand(time(NULL)); //questo comando ha a che fare con la generazione casuale dei numeri, più precisamente con la gestione del tempo.
 	FILE *gp; // dichiarazione puntatore file
 	gp = fopen("C:\\Users\\cosot\\Desktop\\NesBoy Save Converter\\nes.pk2", "wb"); //apertura del file
 	if(gp == 0) // se il puntatore restituisce "NULL", allora l'apertura del file non è andata a buon fine
@@ -98,8 +100,6 @@ void gbup(int *X)
 		fputc(*(X+i), gp);
 		*(X+73) = EOF;
 	}
-	//*(X+24) = (rand() % 255) + 1;
-	//*(X+25) = (rand() % 255) + 1;
 	fclose(gp); //chiusura del file
 }
 
@@ -137,7 +137,7 @@ int main()
 		nesload(&s, NS); //carico il pokèmon da convertire
 		in_conv(NS, GS); //effettuo un'iniziale conversione
 		mov_conv(GS); //converto gli index number delle mosse
-		gbup(GS);
+		gbup(GS); //creo il file .pk2
 	}
 	while (1);
 	return 0;
