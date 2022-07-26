@@ -107,8 +107,8 @@ void gbup(int *X)
 void exp_conv(int *X)
 {
 	int expgrp[152] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 1, 1, 2, 2, 1, 1, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2, 4, 4, 1, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3}; //array containing pokémons' experience types (1 = fast; 2 = medium fast; 3 = medium slow; 4 = slow)
-	*(X+11) = *(X+12) = *(X+13) = 0;
-	switch (expgrp[*(X+3) - 1])
+	*(X+11) = *(X+12) = *(X+13) = 0; //azzero i valori degli exp del pokémon (per evitare errori di conversione)
+	switch (expgrp[*(X+3) - 1]) //uso una formula diversa a seconda del gruppo di esperienza del pkmn
 	{
 		case 1:
 		*(X+13) = round(pow(*(X+34), 3)) * 4/5; 
@@ -122,6 +122,16 @@ void exp_conv(int *X)
 		case 4:
 		*(X+13) = round(pow(*(X+34), 3)) * 5/4; 
 		break;
+	}
+	while (*(X+13)>255) //necessario perchè gli exp sono rappresentati da 3 byte (ognuno di essi può contenere valori da 0 a 255)
+	{
+		*(X+13) = *(X+13) - 255;
+		*(X+12) = *(X+12) + 1;	
+	}
+	while (*(X+12)>255) //necessario perchè gli exp sono rappresentati da 3 byte (ognuno di essi può contenere valori da 0 a 255)
+	{
+		*(X+12) = *(X+12) - 255;
+		*(X+11) = *(X+11) + 1;	
 	}
 }
 
