@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 void nesload (int *x, int *X)
 {
@@ -103,6 +104,27 @@ void gbup(int *X)
 	fclose(gp); //chiusura del file
 }
 
+void exp_conv(int *X)
+{
+	int expgrp[152] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 1, 1, 2, 2, 1, 1, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2, 4, 4, 1, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3}; //array containing pokémons' experience types (1 = fast; 2 = medium fast; 3 = medium slow; 4 = slow)
+	*(X+11) = *(X+12) = *(X+13) = 0;
+	switch (expgrp[*(X+3) - 1])
+	{
+		case 1:
+		*(X+13) = round(pow(*(X+34), 3)) * 4/5; 
+		break;
+		case 2:
+		*(X+13) = round(pow(*(X+34), 3));
+		break;
+		case 3:
+		*(X+13) = (round(pow(*(X+34), 3)) * 6/5) - 15 * round(pow(*(X+34), 2)) + *(X+34) * 100 - 140;
+		break;
+		case 4:
+		*(X+13) = round(pow(*(X+34), 3)) * 5/4; 
+		break;
+	}
+}
+
 void mov_conv(int *X)
 {
 	int i, j;
@@ -127,7 +149,7 @@ int main()
 {
 	int s;
 	int NS[14]; //vettore contente la struttura di base del pokèmon [nes]
-	int GS[74] = {1, 143, 255, 143, 0, 33, 133, 111, 0, 171, 246, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 154, 35, 20, 40, 0, 70, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0,  0, 128, 146, 135, 0, 0, 0, 0, 0, 0, 0, 0, 151, 151, 151, 151, 151, 151, 151, 80, 80, 80, 80}; //struttura di base del file pokèmon di seconda generazione
+	int GS[74] = {1, 143, 255, 143, 0, 33, 133, 111, 0, 171, 246, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 154, 35, 20, 40, 0, 70, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 146, 135, 0, 0, 0, 0, 0, 0, 0, 0, 151, 151, 151, 151, 151, 151, 151, 80, 80, 80, 80}; //struttura di base del file pokèmon di seconda generazione
 	printf ("\n[NesBoy Save Converter]\n\n");
 	do
 	{
@@ -136,6 +158,7 @@ int main()
 		s = s - 1;
 		nesload(&s, NS); //carico il pokèmon da convertire
 		in_conv(NS, GS); //effettuo un'iniziale conversione
+		exp_conv(GS); //converto i valori dei punti esperienza
 		mov_conv(GS); //converto gli index number delle mosse
 		gbup(GS); //creo il file .pk2
 	}
