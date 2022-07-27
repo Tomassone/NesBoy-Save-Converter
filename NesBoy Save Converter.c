@@ -123,7 +123,7 @@ void exp_conv(int *X)
 		*(X+13) = round(pow(*(X+34), 3)) * 5/4; 
 		break;
 	}
-	while (*(X+13)>255) //necessario perchè gli exp sono rappresentati da 3 byte (ognuno di essi può contenere valori da 0 a 255)
+	while (*(X+13)>255 && *(X+12)<=255) //necessario perchè gli exp sono rappresentati da 3 byte (ognuno di essi può contenere valori da 0 a 255)
 	{
 		*(X+13) = *(X+13) - 255;
 		*(X+12) = *(X+12) + 1;	
