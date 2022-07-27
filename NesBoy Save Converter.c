@@ -1,8 +1,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-#include <math.h>
+#include <time.h> //necessaria per la randomizzazione
+#include <math.h> //necessaria per l'elevazione a potenza
 
 void nesload (int *x, int *X)
 {
@@ -120,7 +120,7 @@ void exp_conv(int *X)
 		*(X+13) = round(pow(*(X+34), 3)) * 4/5; 
 		break;
 		case 2:
-		*(X+13) = round(pow(*(X+34), 3));
+		*(X+13) = round(pow(*(X+34), 3)); //elevo a potenza
 		break;
 		case 3:
 		*(X+13) = (round(pow(*(X+34), 3)) * 6/5) - 15 * round(pow(*(X+34), 2)) + *(X+34) * 100 - 140;
