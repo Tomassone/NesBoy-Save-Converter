@@ -106,8 +106,14 @@ void gbup(int *X)
 
 void exp_conv(int *X)
 {
-	int expgrp[152] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 1, 1, 2, 2, 1, 1, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2, 4, 4, 1, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3}; //array containing pokémons' experience types (1 = fast; 2 = medium fast; 3 = medium slow; 4 = slow)
+	//int i;
+	int expgrp[157] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 1, 1, 2, 2, 1, 1, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2, 4, 4, 1, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 4, 4, 4, 4, 4}; //array containing pokémons' experience types (1 = fast; 2 = medium fast; 3 = medium slow; 4 = slow)
 	*(X+11) = *(X+12) = *(X+13) = 0; //azzero i valori degli exp del pokémon (per evitare errori di conversione)
+	/*for (i=0; i<157; i++)
+	{
+		printf("%d) ", i + 1);
+		printf("%d\n", expgrp[i]);
+	}*/
 	switch (expgrp[*(X+3) - 1]) //uso una formula diversa a seconda del gruppo di esperienza del pkmn
 	{
 		case 1:
@@ -132,6 +138,28 @@ void exp_conv(int *X)
 	{
 		*(X+12) = *(X+12) - 255;
 		*(X+11) = *(X+11) + 1;	
+	}
+}
+
+void scnd_conv(int *X)
+{
+	switch (*(X+3))
+	{
+		case 152: //raikou
+		*(X+3) = 243;
+		break;
+		case 153: //entei
+		*(X+3) = 244;
+		break;
+		case 154: //suicune
+		*(X+3) = 245;
+		break;
+		case 155: //lugia
+		*(X+3) = 249;
+		break;
+		case 156: //oh-ho
+		*(X+3) = 250;
+		break;
 	}
 }
 
@@ -169,6 +197,8 @@ int main()
 		nesload(&s, NS); //carico il pokèmon da convertire
 		in_conv(NS, GS); //effettuo un'iniziale conversione
 		exp_conv(GS); //converto i valori dei punti esperienza
+		if (GS[3] > 151)
+		scnd_conv(GS); //conversione degli ultimi 5 pokémon del pokédex (gli unici di 2 gen --> per cui gli id non sono uguali)
 		mov_conv(GS); //converto gli index number delle mosse
 		gbup(GS); //creo il file .pk2
 	}
