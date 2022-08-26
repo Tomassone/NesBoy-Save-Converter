@@ -7,9 +7,12 @@
 void nesload (int *x, int *X)
 {
 	int i, j;
+	char FP[50]; //stringa che conterrà il percorso del file da aprire.
 	int N[14] = {51, 57, 63, 75, 87, 99, 105, 111, 117, 123, 129, 135, 141}; //indirizzi della memoria da controllare per i pokèmon della squadra
-	FILE *np; // dichiarazione puntatore file
-	np = fopen("C:\\Users\\cosot\\Desktop\\NesBoy Save Converter\\Pokemon Yellow - Nes version.sav", "rb"); //apertura del file (write here the path of the save file you want to open)
+	FILE *np; //dichiarazione puntatore file
+	printf("\nWrite here the full path of your NES save file: ");
+	scanf("%s", FP);
+	np = fopen(FP, "rb"); //apertura del file
 	if(np == 0) // se il puntatore restituisce "NULL", allora l'apertura del file non è andata a buon fine
 	printf("Error! The program was not able to open the NES save file.\n"); 
 	else
@@ -90,16 +93,20 @@ void in_conv(int *X, int *Y)
 
 void gbup(int *X)
 {
-	int i;
+	int i;	
+	char FP[50]; //stringa che conterrà il percorso del file da creare.
 	FILE *gp; // dichiarazione puntatore file
-	gp = fopen("C:\\Users\\cosot\\Desktop\\NesBoy Save Converter\\nes.pk2", "wb"); //apertura del file
+	printf("Write here the full path in which you want to save the .pk2 file: ");
+	scanf("%s", FP);
+	gp = fopen(FP, "wb"); //apertura del file
 	if(gp == 0) // se il puntatore restituisce "NULL", allora l'apertura del file non è andata a buon fine
-	printf("Error! The program was not able to create the .pk2 file.\n");
+	printf("Error! The program was not able to create the .pk2 file.\n\n");
 	else
 	{	
 		for (i = 0; i<73; i++)
 		fputc(*(X+i), gp);
 		*(X+73) = EOF;
+		printf("\n[Your .pk2 file was successfully created.]\n\n");
 	}
 	fclose(gp); //chiusura del file
 }
