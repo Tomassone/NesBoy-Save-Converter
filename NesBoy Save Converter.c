@@ -14,7 +14,7 @@ void nesload (int *x, int *X)
 	scanf("%s", FP);
 	np = fopen(FP, "rb"); //apertura del file
 	if(np == 0) // se il puntatore restituisce "NULL", allora l'apertura del file non è andata a buon fine
-	printf("Error! The program was not able to open the NES save file.\n"); 
+		printf("Error! The program was not able to open the NES save file.\n"); 
 	else
 	{
 		printf("\n[Your save file was successfully opened.]\n");
@@ -24,53 +24,53 @@ void nesload (int *x, int *X)
 			if (j == 0)
 			{
 				for (i = 0; i<=N[j] + *x; i++)
-				*(X+j) = fgetc(np);
+					*(X+j) = fgetc(np);
 			}
 			else
 			{
 				for (i = N[j-1] + 1 + *x; i<=N[j] + *x; i++)
-				*(X+j) = fgetc(np);
+					*(X+j) = fgetc(np);
 			}
 			switch (j)
 			{
 				case 0:
-				printf (">	species:       	");
+					printf (">	species:       	");
 				break;
 				case 1:
-				printf (">	level:	        ");
+					printf (">	level:	        ");
 				break;
 				case 2:
-				printf (">	remaining hps:	");
+					printf (">	remaining hps:	");
 				break;
 				case 3:
-				printf (">	total hps:	");
+					printf (">	total hps:	");
 				break;
 				case 4:
-				printf (">	exp:      	");
+					printf (">	exp:      	");
 				break;
 				case 5:
-				printf (">	first move:	");
+					printf (">	first move:	");
 				break;
 				case 6:
-				printf (">	second move:	");
+					printf (">	second move:	");
 				break;
 				case 7:
-				printf (">	third move:	");
+					printf (">	third move:	");
 				break;
 				case 8:
-				printf (">	fourth move:	");
+					printf (">	fourth move:	");
 				break;
 				case 9:
-				printf (">	pp first move:	");
+					printf (">	pp first move:	");
 				break;
 				case 10:
-				printf (">	pp second move:	");
+					printf (">	pp second move:	");
 				break;
 				case 11:
-				printf (">	pp third move:	");
-				break;
+					printf (">	pp third move:	");
+					break;
 				case 12:
-				printf (">	pp fourth move:	");
+					printf (">	pp fourth move:	");
 				break;
 			}
 			printf("%d\n", *(X+j));
@@ -86,7 +86,7 @@ void in_conv(int *X, int *Y)
 	int G[14] = {3, 34, 38, 40, 13, 5, 6, 7, 8, 26, 27, 28, 29}; //vettore contenente una tabella di conversione degli indirizzi 
 	srand(time(NULL)); //questo comando ha a che fare con la generazione casuale dei numeri, più precisamente con la gestione del tempo.
 	for (i = 0; i<13; i++)
-	*(Y+G[i]) = *(X+i);
+		*(Y+G[i]) = *(X+i);
 	*(Y+24) = (rand() % 255) + 1; //randomizzo gli IV
 	*(Y+25) = (rand() % 255) + 1; //randomizzo gli IV
 }
@@ -100,11 +100,11 @@ void gbup(int *X)
 	scanf("%s", FP);
 	gp = fopen(FP, "wb"); //apertura del file
 	if(gp == 0) // se il puntatore restituisce "NULL", allora l'apertura del file non è andata a buon fine
-	printf("Error! The program was not able to create the .pk2 file.\n\n");
+		printf("Error! The program was not able to create the .pk2 file.\n\n");
 	else
 	{	
 		for (i = 0; i<73; i++)
-		fputc(*(X+i), gp);
+			fputc(*(X+i), gp);
 		*(X+73) = EOF;
 		printf("\n[Your .pk2 file was successfully created.]\n\n");
 	}
@@ -124,16 +124,16 @@ void exp_conv(int *X)
 	switch (expgrp[*(X+3) - 1]) //uso una formula diversa a seconda del gruppo di esperienza del pkmn
 	{
 		case 1:
-		*(X+13) = round(pow(*(X+34), 3)) * 4/5; 
+			*(X+13) = round(pow(*(X+34), 3)) * 4/5; 
 		break;
 		case 2:
-		*(X+13) = round(pow(*(X+34), 3)); //elevo a potenza
+			*(X+13) = round(pow(*(X+34), 3)); //elevo a potenza
 		break;
 		case 3:
-		*(X+13) = (round(pow(*(X+34), 3)) * 6/5) - 15 * round(pow(*(X+34), 2)) + *(X+34) * 100 - 140;
+			*(X+13) = (round(pow(*(X+34), 3)) * 6/5) - 15 * round(pow(*(X+34), 2)) + *(X+34) * 100 - 140;
 		break;
 		case 4:
-		*(X+13) = round(pow(*(X+34), 3)) * 5/4; 
+			*(X+13) = round(pow(*(X+34), 3)) * 5/4; 
 		break;
 	}
 	while (*(X+13)>255 && *(X+12)<=255) //necessario perchè gli exp sono rappresentati da 3 byte (ognuno di essi può contenere valori da 0 a 255)
@@ -153,19 +153,19 @@ void scnd_conv(int *X)
 	switch (*(X+3))
 	{
 		case 152: //raikou
-		*(X+3) = 243;
+			*(X+3) = 243;
 		break;
 		case 153: //entei
-		*(X+3) = 244;
+			*(X+3) = 244;
 		break;
 		case 154: //suicune
-		*(X+3) = 245;
+			*(X+3) = 245;
 		break;
 		case 155: //lugia
-		*(X+3) = 249;
+			*(X+3) = 249;
 		break;
 		case 156: //oh-ho
-		*(X+3) = 250;
+			*(X+3) = 250;
 		break;
 	}
 }
@@ -180,12 +180,14 @@ void mov_conv(int *X)
 		printf ("%x\n", M[j]);
 	}*/
 	for (i = 5; i <= 8; i++)
-	for (j = 0; j < 251; j++)
 	{
-		if (*(X+i) == M[j] && M[j] != 255) 
+		for (j = 0; j < 251; j++)
 		{
-			*(X+i) = j + 1;
-			j = 251;
+			if (*(X+i) == M[j] && M[j] != 255) 
+			{
+				*(X+i) = j + 1;
+				j = 251;
+			}
 		}
 	}
 }
@@ -205,7 +207,7 @@ int main()
 		in_conv(NS, GS); //effettuo un'iniziale conversione
 		exp_conv(GS); //converto i valori dei punti esperienza
 		if (GS[3] > 151)
-		scnd_conv(GS); //conversione degli ultimi 5 pokémon del pokédex (gli unici di 2 gen --> per cui gli id non sono uguali)
+			scnd_conv(GS); //conversione degli ultimi 5 pokémon del pokédex (gli unici di 2 gen --> per cui gli id non sono uguali)
 		mov_conv(GS); //converto gli index number delle mosse
 		gbup(GS); //creo il file .pk2
 	}
