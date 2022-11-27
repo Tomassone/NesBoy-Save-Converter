@@ -1,10 +1,7 @@
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h> //necessaria per la randomizzazione
-#include <math.h> //necessaria per l'elevazione a potenza
+#include "pkmn_nes.h" //inclusione del corrispondente file header.
 
-void nesload (int *x, int *X)
+void nesload(int *x, int *X)
 {
 	int i, j;
 	char FP[50]; //stringa che conterrà il percorso del file da aprire.
@@ -78,37 +75,6 @@ void nesload (int *x, int *X)
 		printf("\n");
 	}
 	fclose(np); //chiusura del file
-}
-
-void in_conv(int *X, int *Y)
-{
-	int i;
-	int G[14] = {3, 34, 38, 40, 13, 5, 6, 7, 8, 26, 27, 28, 29}; //vettore contenente una tabella di conversione degli indirizzi 
-	srand(time(NULL)); //questo comando ha a che fare con la generazione casuale dei numeri, più precisamente con la gestione del tempo.
-	for (i = 0; i<13; i++)
-		*(Y+G[i]) = *(X+i);
-	*(Y+24) = (rand() % 255) + 1; //randomizzo gli IV
-	*(Y+25) = (rand() % 255) + 1; //randomizzo gli IV
-}
-
-void gbup(int *X)
-{
-	int i;	
-	char FP[50]; //stringa che conterrà il percorso del file da creare.
-	FILE *gp; // dichiarazione puntatore file
-	printf("Write here the full path in which you want to save the .pk2 file: ");
-	scanf("%s", FP);
-	gp = fopen(FP, "wb"); //apertura del file
-	if(gp == 0) // se il puntatore restituisce "NULL", allora l'apertura del file non è andata a buon fine
-		printf("Error! The program was not able to create the .pk2 file.\n\n");
-	else
-	{	
-		for (i = 0; i<73; i++)
-			fputc(*(X+i), gp);
-		*(X+73) = EOF;
-		printf("\n[Your .pk2 file was successfully created.]\n\n");
-	}
-	fclose(gp); //chiusura del file
 }
 
 void exp_conv(int *X)
@@ -191,27 +157,3 @@ void mov_conv(int *X)
 		}
 	}
 }
-
-int main()
-{
-	int s;
-	int NS[14]; //vettore contente la struttura di base del pokèmon [nes]
-	int GS[74] = {1, 143, 255, 143, 0, 33, 133, 111, 0, 171, 246, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 154, 35, 20, 40, 0, 70, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 146, 135, 0, 0, 0, 0, 0, 0, 0, 0, 151, 151, 151, 151, 151, 151, 151, 80, 80, 80, 80}; //struttura di base del file pokèmon di seconda generazione
-	printf ("\n[NesBoy Save Converter]\n\n");
-	do
-	{
-		printf ("Which pokemon of your party would you like to select? ");
-		scanf("%d", &s);
-		s = s - 1;
-		nesload(&s, NS); //carico il pokèmon da convertire
-		in_conv(NS, GS); //effettuo un'iniziale conversione
-		exp_conv(GS); //converto i valori dei punti esperienza
-		if (GS[3] > 151)
-			scnd_conv(GS); //conversione degli ultimi 5 pokémon del pokédex (gli unici di 2 gen --> per cui gli id non sono uguali)
-		mov_conv(GS); //converto gli index number delle mosse
-		gbup(GS); //creo il file .pk2
-	}
-	while (1);
-	return 0;
-}
-
