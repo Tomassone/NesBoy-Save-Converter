@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "pkmn_gb.h"
 #include "pkmn_nes.h"
+#include "conv.h"
 #include "ui.h"
 
 int main()
