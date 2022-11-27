@@ -1,23 +1,46 @@
+BINARY=bin
+CODEDIRS=source_files
+INCDIRS=header_files
 
-objs = main.o pkmn_gb.o pkmn_nes.o ui.o 
+CC=gcc
+OPT=-O0
+# generate files that encode make rules for the .h dependencies
+DEPFLAGS=-MP -MD
+# automatically add the -I onto each include directory
+CFLAGS=-Wall -Wextra -g $(foreach D,$(INCDIRS),-I$(D)) $(OPT) $(DEPFLAGS)
 
-vpath %.h header_files
-vpath %.c source_files
+# for-style iteration (foreach) and regular expression completions (wildcard)
+CFILES=$(foreach D,$(CODEDIRS),$(wildcard $(D)/*.c))
+# regular expression replacement
+OBJECTS=$(patsubst %.c,%.o,$(CFILES))
+DEPFILES=$(patsubst %.c,%.d,$(CFILES))
 
-nesboy : $(objs)
-	gcc -o nesboy $(objs)
-	
-main.o : main.c
-	gcc -c main.c
+all: $(BINARY)
 
-pkmn_gb.o : pkmn_gb.c pkmn_gb.h
-	gcc -c pkmn_gb.c
-	
-pkmn_nes.o : pkmn_nes.c pkmn_nes.h
-	gcc -c pkmn_nes.c
-	
-ui.o : ui.c ui.h
-	gcc -c ui.c
-	
-clean :
-	rm edit $(objs)
+$(BINARY): $(OBJECTS)
+	$(CC) -o $@ $^ -lm
+
+# only want the .c file dependency here, thus $< instead of $^.
+#
+%.o:%.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+clean:
+	rm -rf $(BINARY) $(OBJECTS) $(DEPFILES)
+
+# shell commands are a set of keystrokes away
+distribute: clean
+	tar zcvf dist.tgz *
+
+# @ silences the printing of the command
+# $(info ...) prints output
+diff:
+	$(info The status of the repository, and the volume of per-file changes:)
+	@git status
+	@git diff --stat
+
+# include the dependencies
+-include $(DEPFILES)
+
+# add .PHONY so that the non-targetfile - rules work even if a file with the same name exists.
+.PHONY: all clean distribute diff

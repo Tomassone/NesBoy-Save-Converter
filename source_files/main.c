@@ -1,7 +1,8 @@
 
 #include <stdio.h>
-#include "pkmn_gb.c"
-#include "pkmn_nes.c"
+#include "pkmn_gb.h"
+#include "pkmn_nes.h"
+#include "ui.h"
 
 int main()
 {
