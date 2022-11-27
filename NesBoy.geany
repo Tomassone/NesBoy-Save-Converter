@@ -31,19 +31,36 @@ long_line_column=72
 current_page=2
 FILE_NAME_0=4062;C;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fsource_files%2Fconv.c;0;4
 FILE_NAME_1=67;C;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fsource_files%2Fpkmn_gb.c;0;4
-FILE_NAME_2=1869;C;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fsource_files%2Fpkmn_nes.c;0;4
+FILE_NAME_2=617;C;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fsource_files%2Fpkmn_nes.c;0;4
 FILE_NAME_3=0;C++;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fheader_files%2Fconv.h;0;4
 FILE_NAME_4=20;C++;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fheader_files%2Fpkmn_gb.h;0;4
 FILE_NAME_5=22;C++;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fheader_files%2Fpkmn_nes.h;0;4
 FILE_NAME_6=619;C;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fsource_files%2Fmain.c;0;4
+FILE_NAME_7=0;Make;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2FMakefile;0;4
 
 [VTE]
-last_dir=/media/aten/6af47396-0b61-4a61-b6b9-6d2443e5e68c/Spazzatura/Sorgenti/NesBoy-Save-Converter
+last_dir=/media/aten/6af47396-0b61-4a61-b6b9-6d2443e5e68c/Spazzatura/Sorgenti/NesBoy-Save-Converter/source_files
 
 [build-menu]
-NF_02_LB=Compila _oggetto
-NF_02_CM=make %e.o
-NF_02_WD=
+EX_01_LB=
+EX_01_CM=
+EX_01_WD=
+NF_00_LB=Co_mpila
+NF_00_CM=cd ..; make
+NF_00_WD=
+NF_01_LB=Compila su _Destinazione Scelta...
+NF_01_CM=cd ..; make 
+NF_01_WD=
+EX_00_LB=_Execute
+EX_00_CM=cd ..; ./bin
+EX_00_WD=
+CFT_00_LB=_Compile
+CFT_00_CM=cd ..; make clean
+CFT_00_WD=
+CFT_01_LB=_Build
+CFT_01_CM=cd ..; make
+CFT_01_WD=
+filetypes=C;
 
 [prjorg]
 source_patterns=*.c;*.C;*.cpp;*.cxx;*.c++;*.cc;*.m;
