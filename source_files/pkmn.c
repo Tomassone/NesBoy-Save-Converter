@@ -24,7 +24,7 @@ void nesload(int *x, int *X)
 			if (j == 0)
 			{
 				for (i = 0; i <= N[j] + *x; i++)
-					*(X+j) = fgetc(np);
+					*(X + j) = fgetc(np);
 			}
 			else
 			{
@@ -85,17 +85,17 @@ void in_conv(int *X, int *Y)
 	int i;
 	int G[14] = {3, 34, 38, 40, 13, 5, 6, 7, 8, 26, 27, 28, 29}; //vettore contenente una tabella di conversione degli indirizzi.
 	srand(time(NULL)); //questo comando ha a che fare con la generazione casuale dei numeri, più precisamente con la gestione del tempo.
-	for (i = 0; i<13; i++)
-		*(Y+G[i]) = *(X+i);
-	*(Y+24) = (rand() % 255) + 1; //randomizzo gli IV.
-	*(Y+25) = (rand() % 255) + 1; //randomizzo gli IV.
+	for (i = 0; i < 13; i++)
+		*(Y + G[i]) = *(X + i);
+	*(Y + 24) = (rand() % 255) + 1; //randomizzo gli IV.
+	*(Y + 25) = (rand() % 255) + 1; //randomizzo gli IV.
 }
 
 void exp_conv(int *X)
 {
 	//int i;
 	int expgrp[157] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 1, 1, 2, 2, 1, 1, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2, 4, 4, 1, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 4, 4, 4, 4, 4}; //array containing pokémons' experience types (1 = fast; 2 = medium fast; 3 = medium slow; 4 = slow)
-	*(X+11) = *(X+12) = *(X+13) = 0; //azzero i valori degli exp del pokémon (per evitare errori di conversione)
+	*(X + 11) = *(X + 12) = *(X + 13) = 0; //azzero i valori degli exp del pokémon (per evitare errori di conversione)
 	/*for (i=0; i<157; i++)
 	{
 		printf("%d) ", i + 1);
@@ -104,48 +104,48 @@ void exp_conv(int *X)
 	switch (expgrp[*(X+3) - 1]) //uso una formula diversa a seconda del gruppo di esperienza del pkmn
 	{
 		case 1:
-			*(X+13) = round(pow(*(X+34), 3)) * 4/5; 
+			*(X + 13) = round(pow(*(X + 34), 3)) * 4/5; 
 		break;
 		case 2:
-			*(X+13) = round(pow(*(X+34), 3)); //elevo a potenza
+			*(X + 13) = round(pow(*(X + 34), 3)); //elevo a potenza
 		break;
 		case 3:
-			*(X+13) = (round(pow(*(X+34), 3)) * 6/5) - 15 * round(pow(*(X+34), 2)) + *(X+34) * 100 - 140;
+			*(X + 13) = (round(pow(*(X + 34), 3)) * 6/5) - 15 * round(pow(*(X + 34), 2)) + *(X + 34) * 100 - 140;
 		break;
 		case 4:
-			*(X+13) = round(pow(*(X+34), 3)) * 5/4; 
+			*(X + 13) = round(pow(*(X + 34), 3)) * 5/4; 
 		break;
 	}
-	while (*(X+13) > 255 && *(X+12) <= 255) //necessario perchè gli exp sono rappresentati da 3 byte (ognuno di essi può contenere valori da 0 a 255)
+	while (*(X + 13) > 255 && *(X + 12) <= 255) //necessario perchè gli exp sono rappresentati da 3 byte (ognuno di essi può contenere valori da 0 a 255)
 	{
-		*(X+13) = *(X+13) - 255;
-		*(X+12) = *(X+12) + 1;	
+		*(X + 13) = *(X + 13) - 255;
+		*(X + 12) = *(X + 12) + 1;	
 	}
-	while (*(X+12) > 255) //necessario perchè gli exp sono rappresentati da 3 byte (ognuno di essi può contenere valori da 0 a 255)
+	while (*(X + 12) > 255) //necessario perchè gli exp sono rappresentati da 3 byte (ognuno di essi può contenere valori da 0 a 255)
 	{
-		*(X+12) = *(X+12) - 255;
-		*(X+11) = *(X+11) + 1;	
+		*(X + 12) = *(X + 12) - 255;
+		*(X + 11) = *(X + 11) + 1;	
 	}
 }
 
 void scnd_conv(int *X)
 {
-	switch (*(X+3))
+	switch (*(X + 3))
 	{
 		case 152: //raikou
-			*(X+3) = 243;
+			*(X + 3) = 243;
 		break;
 		case 153: //entei
-			*(X+3) = 244;
+			*(X + 3) = 244;
 		break;
 		case 154: //suicune
-			*(X+3) = 245;
+			*(X + 3) = 245;
 		break;
 		case 155: //lugia
-			*(X+3) = 249;
+			*(X + 3) = 249;
 		break;
 		case 156: //oh-ho
-			*(X+3) = 250;
+			*(X + 3) = 250;
 		break;
 	}
 }
@@ -190,7 +190,7 @@ void gbup(int *X)
 	{	
 		for (i = 0; i < 73; i++)
 			fputc(*(X+i), gp);
-		*(X+73) = EOF;
+		*(X + 73) = EOF;
 		printf("\n[Your .pk2 file was successfully created.]\n\n");
 	}
 	fclose(gp); //chiusura del file
