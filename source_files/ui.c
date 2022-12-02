@@ -9,7 +9,7 @@ void clrscr()  //ho dovuto "ricreare" la funzione "clear screen", visto che non 
 		system("clear");
 	#else
 		int i;
-		for (i=0; i<80; i++) 
+		for (i = 0; i < 80; i++) 
 			printf ("\n");
 	#endif
 }
