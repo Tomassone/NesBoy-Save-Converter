@@ -28,9 +28,9 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=0
-FILE_NAME_0=575;C;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fsource_files%2Fmain.c;0;4
-FILE_NAME_1=3702;C;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fsource_files%2Fpkmn.c;0;4
+current_page=1
+FILE_NAME_0=859;C;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fsource_files%2Fmain.c;0;4
+FILE_NAME_1=6659;C;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fsource_files%2Fpkmn.c;0;4
 FILE_NAME_2=343;C++;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fheader_files%2Fpkmn.h;0;4
 FILE_NAME_3=0;C;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fsource_files%2Fui.c;0;4
 FILE_NAME_4=0;C++;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fheader_files%2Fui.h;0;4
