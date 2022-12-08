@@ -191,7 +191,6 @@ void gbup(int* pkmn_gb)
 		for (i = 0; i < 73; i++)
 			fputc(*(pkmn_gb + i), gp);
 		*(pkmn_gb + 73) = EOF;
-		//fwrite(pkmn_gb, 1, 73, gp);
 		printf("\n[Your .pk2 file was successfully created.]\n\n");
 	}
 	fclose(gp); //chiusura del file
