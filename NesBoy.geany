@@ -19,7 +19,7 @@ indent_mode=2
 
 [project]
 name=NesBoy
-base_path=/media/aten/6af47396-0b61-4a61-b6b9-6d2443e5e68c/Spazzatura/Sorgenti/NesBoy-Save-Converter/
+base_path=/Users/Cesare/Documents/GitHub/NesBoy-Save-Converter/
 description=
 file_patterns=
 

@@ -5,7 +5,7 @@ void clrscr()  //ho dovuto "ricreare" la funzione "clear screen", visto che non 
 {
 	#ifdef _WIN32
 		system("cls");
-	#elif __linux__
+	#elif __linux__ || __APPLE__
 		system("clear");
 	#else
 		int i;
