@@ -15,10 +15,10 @@ int main()
 		scanf("%d", &choice);
 		choice--;
 		nesload(choice, pkmn_nes); //carico il pokèmon da convertire.
-		in_conv(pkmn_nes, pkmn_gb); //effettuo un'iniziale conversione.
+		addr_conv(pkmn_nes, pkmn_gb); //effettuo un'iniziale conversione.
 		exp_conv(pkmn_gb); //converto i valori dei punti esperienza.
 		if (pkmn_gb[3] > 151)
-			scnd_conv(pkmn_gb); //conversione degli ultimi 5 pokémon del pokédex (gli unici di 2 gen --> per cui gli id non sono uguali).
+			id_conv(pkmn_gb); //conversione degli ultimi 5 pokémon del pokédex (gli unici di 2 gen --> per cui gli id non sono uguali).
 		mov_conv(pkmn_gb); //converto gli index number delle mosse.
 		gbup(pkmn_gb); //creo il file .pk2.
 		printf("[Press enter.]");

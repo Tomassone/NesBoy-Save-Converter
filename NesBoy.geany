@@ -19,7 +19,7 @@ indent_mode=2
 
 [project]
 name=NesBoy
-base_path=/Users/Cesare/Documents/GitHub/NesBoy-Save-Converter/
+base_path=/media/aten/6af47396-0b61-4a61-b6b9-6d2443e5e68c/Spazzatura/Sorgenti/NesBoy-Save-Converter/
 description=
 file_patterns=
 
@@ -28,15 +28,15 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=2
-FILE_NAME_0=0;C++;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fheader_files%2Fui.h;0;4
-FILE_NAME_1=105;C;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fsource_files%2Fmain.c;0;4
-FILE_NAME_2=7131;C;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fsource_files%2Fpkmn.c;0;4
-FILE_NAME_3=637;C++;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fheader_files%2Fpkmn.h;0;4
-FILE_NAME_4=244;C;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fsource_files%2Fui.c;0;4
+current_page=1
+FILE_NAME_0=1026;C++;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fheader_files%2Fpkmn.h;0;4
+FILE_NAME_1=6537;C;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fsource_files%2Fpkmn.c;0;4
+FILE_NAME_2=0;C++;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fheader_files%2Fui.h;0;4
+FILE_NAME_3=1188;C;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fsource_files%2Fmain.c;0;4
+FILE_NAME_4=0;C;0;EUTF-8;1;1;0;%2Fmedia%2Faten%2F6af47396-0b61-4a61-b6b9-6d2443e5e68c%2FSpazzatura%2FSorgenti%2FNesBoy-Save-Converter%2Fsource_files%2Fui.c;0;4
 
 [VTE]
-last_dir=/Users/Cesare
+last_dir=/media/aten/6af47396-0b61-4a61-b6b9-6d2443e5e68c/Spazzatura/Sorgenti/NesBoy-Save-Converter/source_files
 
 [build-menu]
 EX_01_LB=
