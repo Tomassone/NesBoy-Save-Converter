@@ -25,6 +25,7 @@ int main()
 			else
 				printf("The selected pokemon does not exist. Please choose another one.\n");
 		}
+		valid = FALSE;
 		addr_conv(loaded_pkmn, &stored_pkmn); //effettuo la conversione della struttura.
 		gbup(stored_pkmn); //creo il file .pk2.
 		printf("[Press enter.]");

@@ -229,7 +229,7 @@ pk2_file_structure build_pk2(pkmn_gb base)
 
 void gbup(pkmn_gb stored_pkmn)
 {
-	char filepath[50]; //stringa che conterrà il percorso del file da creare.
+	char filepath[100]; //stringa che conterrà il percorso del file da creare.
 	FILE *gp; //dichiarazione puntatore file.
 	pk2_file_structure to_be_uploated = build_pk2(stored_pkmn);
 	printf("Write here the full path in which you want to save the .pk2 file: ");
