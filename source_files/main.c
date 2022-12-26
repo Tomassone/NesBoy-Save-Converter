@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "constants.h"
 #include "pkmn.h"
+#include "pkmn_manipulation.h"
 #include "ui.h"
 
 int main()
