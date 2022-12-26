@@ -1,0 +1,14 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\cosot\\Desktop\\Programmazione\\Sorgenti\\NesBoy-Save-Converter",
+            "binaryPath": "c:\\Users\\cosot\\Desktop\\Programmazione\\Sorgenti\\NesBoy-Save-Converter\\NesBoy-Save-Converter",
+            "binaryArgs": []
+        }
+    ],
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "cmath": "c",
+        "constants.h": "c"
+    }
+}

@@ -1,5 +1,11 @@
 
-#include <stdlib.h>
+#ifndef UI_H
 
-//funzione che "pulisce" lo schermo.
-void clrscr(); 
+    #define UI_H
+
+    #include <stdlib.h>
+
+    //funzione che "pulisce" lo schermo.
+    void clrscr(); 
+
+#endif

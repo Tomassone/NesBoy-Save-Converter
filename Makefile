@@ -1,4 +1,4 @@
-BINARY=NesBoy
+BINARY=NesBoy-Save-Converter
 CODEDIRS=source_files
 INCDIRS=header_files
 
