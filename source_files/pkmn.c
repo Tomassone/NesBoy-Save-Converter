@@ -1,13 +1,26 @@
 
 #include "pkmn.h" //inclusione del corrispondente file header.
 
+pkmn_nes blank_pkmn_nes()
+{
+	pkmn_nes result;
+	result.id_species = 0x00;
+	result.level = 0x00;
+	result.current_hp = 0x00;
+	result.maximum_hp = 0x00;
+	result.exp = 0x00;
+	result.id_moves[0] = result.id_moves[1] = result.id_moves[2] = result.id_moves[3] = 0x00;
+	result.pp_moves[0] = result.pp_moves[1] = result.pp_moves[2] = result.pp_moves[3] = 0x00;
+	return result;
+}
+
 pkmn_gb blank_pkmn_gb()
 {
 	srand(time(NULL)); //questo comando ha a che fare con la generazione casuale dei numeri, più precisamente con la gestione del tempo.
 	pkmn_gb result;
 	result.id_species = 0x00;
 	result.id_held_item = 0x00;
-	result.id_moves[0] = result.id_moves[1] = result.id_moves[2] = result.id_moves[3] =0x00;
+	result.id_moves[0] = result.id_moves[1] = result.id_moves[2] = result.id_moves[3] = 0x00;
 	result.original_trainer_id = rand() % 0xFFFF; //do un valore randomico al trainer_id.
 	result.exp[0] = result.exp[1] = result.exp[2] = 0x00;
 	result.hp_ev_data = 0x00;
@@ -33,7 +46,38 @@ pkmn_gb blank_pkmn_gb()
 	return result;
 }
 
-void nesload(int pkmn_id, pkmn_nes* loaded_pkmn)
+void show_pkmn_nes(pkmn_nes loaded_pkmn)
+{
+	printf (">	species:       	");
+	printf("%d\n", loaded_pkmn.id_species);
+	printf (">	level:	        ");
+	printf("%d\n", loaded_pkmn.level);
+	printf (">	remaining hps:	");
+	printf("%d\n", loaded_pkmn.current_hp);
+	printf (">	total hps:	");
+	printf("%d\n", loaded_pkmn.maximum_hp);
+	printf (">	exp:      	");
+	printf("%d\n", loaded_pkmn.exp);
+	printf (">	first move:	");
+	printf("%d\n", loaded_pkmn.id_moves[0]);
+	printf (">	second move:	");
+	printf("%d\n", loaded_pkmn.id_moves[1]);
+	printf (">	third move:	");
+	printf("%d\n", loaded_pkmn.id_moves[2]);
+	printf (">	fourth move:	");
+	printf("%d\n", loaded_pkmn.id_moves[3]);
+	printf (">	pp first move:	");
+	printf("%d\n", loaded_pkmn.pp_moves[0]);
+	printf (">	pp second move:	");
+	printf("%d\n", loaded_pkmn.pp_moves[1]);
+	printf (">	pp third move:	");
+	printf("%d\n", loaded_pkmn.pp_moves[2]);
+	printf (">	pp fourth move:	");
+	printf("%d\n", loaded_pkmn.pp_moves[3]);
+	printf("\n");
+}
+
+void load_from_nes(int pkmn_id, pkmn_nes* loaded_pkmn)
 {
 	int i, distance = 0;
 	char filepath[50]; //stringa che conterrà il percorso del file da aprire.
@@ -51,80 +95,53 @@ void nesload(int pkmn_id, pkmn_nes* loaded_pkmn)
 	{
 		printf("\n[Your save file was successfully opened.]\n");
 		printf("\nThis is the pokemon you selected:\n\n");
-		for (i = 0; i <= 12; i++)
+		for (i = 0; i < 13; i++)
 		{
 			distance = addr[i] + pkmn_id; //calcolo la distanza del byte da leggere dall'inizio del file.
 			fseek(np, distance, SEEK_SET); //posiziono correttamente la testina di lettura.
 			switch (i)
 			{
 				case 0:
-					printf (">	species:       	");
 					fread(&(loaded_pkmn->id_species), sizeof(uint8_t), 1, np);
-					printf("%d\n", loaded_pkmn->id_species);
-				break;
+					break;
 				case 1:
-					printf (">	level:	        ");
 					fread(&(loaded_pkmn->level), sizeof(uint8_t), 1, np);
-					printf("%d\n", loaded_pkmn->level);
-				break;
+					break;
 				case 2:
-					printf (">	remaining hps:	");
 					fread(&(loaded_pkmn->current_hp), sizeof(uint8_t), 1, np);
-					printf("%d\n", loaded_pkmn->current_hp);
-				break;
+					break;
 				case 3:
-					printf (">	total hps:	");
 					fread(&(loaded_pkmn->maximum_hp), sizeof(uint8_t), 1, np);
-					printf("%d\n", loaded_pkmn->maximum_hp);
-				break;
+					break;
 				case 4:
-					printf (">	exp:      	");
 					fread(&(loaded_pkmn->exp), sizeof(uint8_t), 1, np);
-					printf("%d\n", loaded_pkmn->exp);
-				break;
+					break;
 				case 5:
-					printf (">	first move:	");
 					fread(&(loaded_pkmn->id_moves[0]), sizeof(uint8_t), 1, np);
-					printf("%d\n", loaded_pkmn->id_moves[0]);
-				break;
+					break;
 				case 6:
-					printf (">	second move:	");
 					fread(&(loaded_pkmn->id_moves[1]), sizeof(uint8_t), 1, np);
-					printf("%d\n", loaded_pkmn->id_moves[1]);
-				break;
+					break;
 				case 7:
-					printf (">	third move:	");
 					fread(&(loaded_pkmn->id_moves[2]), sizeof(uint8_t), 1, np);
-					printf("%d\n", loaded_pkmn->id_moves[2]);
-				break;
+					break;
 				case 8:
-					printf (">	fourth move:	");
 					fread(&(loaded_pkmn->id_moves[3]), sizeof(uint8_t), 1, np);
-					printf("%d\n", loaded_pkmn->id_moves[3]);
-				break;
+					break;
 				case 9:
-					printf (">	pp first move:	");
 					fread(&(loaded_pkmn->pp_moves[0]), sizeof(uint8_t), 1, np);
-					printf("%d\n", loaded_pkmn->pp_moves[0]);
-				break;
+					break;
 				case 10:
-					printf (">	pp second move:	");
 					fread(&(loaded_pkmn->pp_moves[1]), sizeof(uint8_t), 1, np);
-					printf("%d\n", loaded_pkmn->pp_moves[1]);
-				break;
+					break;
 				case 11:
-					printf (">	pp third move:	");
 					fread(&(loaded_pkmn->pp_moves[2]), sizeof(uint8_t), 1, np);
-					printf("%d\n", loaded_pkmn->pp_moves[2]);
 					break;
 				case 12:
-					printf (">	pp fourth move:	");
 					fread(&(loaded_pkmn->pp_moves[3]), sizeof(uint8_t), 1, np);
-					printf("%d\n", loaded_pkmn->pp_moves[3]);
-				break;
+					break;
 			}
 		}
-		printf("\n");
 	}
 	fclose(np); //chiusura del file.
 }
@@ -146,7 +163,7 @@ pk2_file_structure build_pk2(pkmn_gb base)
 	return result;
 }
 
-void gbup(pkmn_gb stored_pkmn)
+void upload_to_gb(pkmn_gb stored_pkmn)
 {
 	char filepath[100]; //stringa che conterrà il percorso del file da creare.
 	FILE *gp; //dichiarazione puntatore file.

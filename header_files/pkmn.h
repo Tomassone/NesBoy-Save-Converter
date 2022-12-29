@@ -60,16 +60,22 @@
         uint8_t closing_byte;
     } pk2_file_structure;
 
-    //funzione che restituisce la struttura di base di un pokémon di seconda generazione.
+    //funzione che restituisce la struttura di base di un pokémon in formato nes.
+    pkmn_nes blank_pkmn_nes();
+
+    //funzione che restituisce la struttura di base di un pokémon di seconda generazione (cioè in formato gb).
     pkmn_gb blank_pkmn_gb();
 
+    //funzione che stampa a schermo le informazioni relative ad un pokémon in formato nes.
+    void show_pkmn_nes(pkmn_nes loaded_pkmn);
+
     //funzione che estrae un pokémon in formato NES da un file di salvaggio.
-    void nesload(int pkmn_id, pkmn_nes* loaded_pkmn);
+    void load_from_nes(int pkmn_id, pkmn_nes* loaded_pkmn);
 
     //funzione che restituisce la struttura di un file pk2.
     pk2_file_structure build_pk2(pkmn_gb base);
 
     //funzione che salva un pokémon di seconda generazione in un file .pk2.
-    void gbup(pkmn_gb stored_pkmn);
+    void upload_to_gb(pkmn_gb stored_pkmn);
 
 #endif

@@ -4,6 +4,7 @@
     #define PKMN_MANIP_H
 
     #include <math.h> //necessaria per l'elevazione a potenza.
+    #include "constants.h"
     #include "pkmn.h"
 
     //funzione che copia direttamente i valori che non richiedono particolari conversioni da una struttura all'altra.
