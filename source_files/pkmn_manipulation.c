@@ -61,7 +61,11 @@ void id_conv(pkmn_gb* stored_pkmn)
 
 void mov_conv(pkmn_gb* stored_pkmn)
 {
-	int i, j; //variabili contatrici.
+	//variabili contatrici.
+	int i, j;
+	//variabile di controllo.
+	int found = FALSE;
+	//vettore contenente una tabella di conversione degli indirizzi.
 	int addr[251] = {0x8B, 0x4F, 0xFF, 0xFF, 0xFF, 0x8D, 0x02, 0x2C, 0x16, 0x8A, 0xFF, 0x9A, 0x95, 
 					 0x9F, 0x8F, 0x5C, 0x5E, 0xAC, 0x60, 0xFF, 0xFF, 0x1F, 0x91, 0x50, 0xFF, 0xFF, 
 					 0x52, 0x37, 0xFF, 0xFF, 0xFF, 0x9B, 0x89, 0xFF, 0xFF, 0xFF, 0xFF, 0x96, 0xA4, 
@@ -81,14 +85,35 @@ void mov_conv(pkmn_gb* stored_pkmn)
 					 0x15, 0xFF, 0x83, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x04, 
 					 0xFF, 0x58, 0x40, 0x7A, 0xFF, 0xAA, 0xFF, 0x88, 0xFF, 0x84, 0x82, 0x53, 0xFF, 
 					 0xFF, 0xFF, 0x93, 0x57, 0x78, 0xFF, 0xFF, 0x81, 0xFF, 0xFF, 0xFF, 0x3A, 0x75, 
-					 0xFF, 0x4E, 0xFF, 0xFF}; //vettore contenente una tabella di conversione degli indirizzi. 
+					 0xFF, 0x4E, 0xFF, 0xFF}; 
+	/*for (i = 0; i < 251; i++)
+	{
+		printf("%d) ", i + 1);
+		printf("0x%X\n", addr[i]);
+	}*/
 	for (i = 0; i < 4; i++)
-		for (j = 0; j < 251; j++)
-			if (stored_pkmn->id_moves[i] == addr[j] && addr[j] != 0xFF) 
+	{
+		for (j = 0; (j < 251) && (found == FALSE); j++)
+		{
+			//se cioè c'è una corrispondenza tra l'indice della mossa e la tabella di conversione.
+			if (stored_pkmn->id_moves[i] == addr[j])
 			{
-				stored_pkmn->id_moves[i] = j + 1;
-				j = 251;
+				if (addr[j] == 0xFF)
+				{
+					stored_pkmn->id_moves[i] = 0x00;
+					stored_pkmn->pp_moves[i] = 0x00;
+					found = TRUE;
+				}
+				else 
+				{
+					//printf("%d) addr = 0x%X\n", j + 1, addr[j]);
+					stored_pkmn->id_moves[i] = j + 1;
+					found = TRUE;
+				}
 			}
+		}
+		found = FALSE;
+	}
 }
 
 void addr_conv(pkmn_nes loaded_pkmn, pkmn_gb* stored_pkmn)
