@@ -13,3 +13,20 @@ void clrscr()  //ho dovuto "ricreare" la funzione "clear screen", visto che non 
 			printf ("\n");
 	#endif
 }
+
+void show_menu(int* slctd_option)
+{
+	int repeat = TRUE;
+	printf("*********************************************************\n***               NesBoy Save Converter               ***\n*********************************************************\n* 1)  TRANSFER A PKMN FROM THE NES TO THE GAMEBOY       *\n* 2)  EXIT                                              *\n*********************************************************\n\n");
+	do
+	{
+		printf("Please select one of the listed options: ");
+		scanf("%d%*c", slctd_option);
+		if (*slctd_option > 0 && *slctd_option < 4) //se cioè è un numero compreso tra 1 e 3.
+			repeat = FALSE;
+		else
+			printf("The selected option is not valid, please select something else.\n");
+	} 
+	while (repeat == TRUE);
+	clrscr();
+}

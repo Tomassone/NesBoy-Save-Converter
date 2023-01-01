@@ -83,6 +83,7 @@ void load_from_nes(int pkmn_id, pkmn_nes* loaded_pkmn)
 	char filepath[50]; //stringa che conterrà il percorso del file da aprire.
 	int addr[13] = {0x33, 0x39, 0x3F, 0x4B, 0x57, 0x63, 0x69, 0x6F, 0x75, 0x7B, 0x81, 0x87, 0x8D}; //indirizzi della memoria da controllare per i pokèmon della squadra
 	FILE *np; //dichiarazione puntatore file.
+	*loaded_pkmn = blank_pkmn_nes();
 	printf("\nWrite here the full path of your NES save file: ");
 	scanf("%s", filepath);
 	np = fopen(filepath, "rb"); //apertura del file.
