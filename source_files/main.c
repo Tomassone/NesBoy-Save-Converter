@@ -10,6 +10,7 @@ int main()
 	int slctd_option = 0, pkmn_choice = 0, valid = FALSE, repeat = TRUE;
 	pkmn_nes loaded_pkmn; //struttura contente la struttura di base del pokèmon [nes].
 	pkmn_gb stored_pkmn; //struttura di base del file pokèmon di seconda generazione.
+	clrscr();
 	show_menu(&slctd_option); //stampo il menù e lascio scegliere all'utente cosa selezionare.
 	if (slctd_option == TRNSFR_PKMN)
 	{
