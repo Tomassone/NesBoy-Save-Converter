@@ -28,7 +28,17 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=-1
+current_page=6
+FILE_NAME_0=0;C++;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fheader_files%2Farray_manipulation.h;0;4
+FILE_NAME_1=0;C++;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fheader_files%2Fconstants.h;0;4
+FILE_NAME_2=0;C++;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fheader_files%2Fpkmn.h;0;4
+FILE_NAME_3=0;C++;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fheader_files%2Fpkmn_manipulation.h;0;4
+FILE_NAME_4=0;C++;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fheader_files%2Fui.h;0;4
+FILE_NAME_5=0;C;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fsource_files%2Farray_manipulation.c;0;4
+FILE_NAME_6=383;C;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fsource_files%2Fmain.c;0;4
+FILE_NAME_7=0;C;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fsource_files%2Fpkmn.c;0;4
+FILE_NAME_8=0;C;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fsource_files%2Fpkmn_manipulation.c;0;4
+FILE_NAME_9=0;C;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fsource_files%2Fui.c;0;4
 
 [VTE]
 last_dir=/Users/Cesare
