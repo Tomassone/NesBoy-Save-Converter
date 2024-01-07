@@ -72,7 +72,7 @@
     //funzione che estrae un pokémon in formato NES da un file di salvaggio.
     void load_from_nes(int pkmn_id, pkmn_nes* loaded_pkmn);
 
-    //funzione che restituisce la struttura di un file pk2.
+    //funzione che restituisce la struttura di un pokémon usata in un file pk2.
     pk2_file_structure build_pk2(pkmn_gb base);
 
     //funzione che salva un pokémon di seconda generazione in un file .pk2.
