@@ -8,14 +8,14 @@
 int main(int argc, char** argv)
 {
 	int slctd_option = 0, pkmn_choice = 0, valid = FALSE, repeat = TRUE;
-	pkmn_nes loaded_pkmn; //struttura contente la struttura di base del pokèmon [nes].
+	pkmn_nes loaded_pkmn; //struttura contenente la struttura di base del pokèmon [nes].
 	pkmn_gb stored_pkmn; //struttura di base del file pokèmon di seconda generazione.
 	
 	clrscr();
 	if (argc == 1) //programma lanciato senza argomenti.
 		slctd_option = show_menu(); //stampo il menù e lascio scegliere all'utente cosa selezionare.
 	else
-		slctd_option = select_from_shell(atoi(argv[1])); //l'utente ha già selezionato cosa fare (conversione da stringa ad intero).
+		slctd_option = check_str_if_int(argv[1], "Error! The input value is not valid."); //l'utente ha già selezionato cosa fare (controllo dunque che il valore inserito sia un intero e converto il tipo).
 	
 	if (slctd_option == TRNSFR_PKMN)
 	{
@@ -24,7 +24,7 @@ int main(int argc, char** argv)
 			while (valid == FALSE) //controllo del valore inserito.
 			{
 				printf ("Which pokemon of your party would you like to select? ");
-				pkmn_choice = check_if_int("Error! The input value is not valid."); //controllo che il valore inserito sia un intero.
+				pkmn_choice = check_input_if_int("Error! The input value is not valid."); //controllo che il valore inserito sia un intero.
 				pkmn_choice--;
 				
 				if (check_num_val(pkmn_choice, 0, 5)) //se cioè è un numero compreso tra 0 e 5.

@@ -28,7 +28,7 @@ int show_menu()
 	do
 	{
 		printf("Please select one of the listed options: ");
-		scanf("%d%*c", &slctd_option);
+		slctd_option = check_input_if_int("Error! The input value is not valid.");
 		
 		if (check_num_val(slctd_option, 1, 2)) //se cioè è un numero compreso tra 1 e 2.
 			repeat = FALSE;

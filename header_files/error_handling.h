@@ -20,7 +20,9 @@
     
     //controllo che il valore inserito dall'utente stia all'interno di un intervallo.
     int check_num_val(int val, int min, int max);
+    //controllo che la stringa in input sia un intero (in tal caso lo restituisco).
+    int check_str_if_int(char string[], char* error_msg);
     //controllo che il valore inserito dall'utente sia un intero (in tal caso lo restituisco).
-    int check_if_int(char* error_msg);
+    int check_input_if_int(char* error_msg);
 
 #endif

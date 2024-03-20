@@ -6,10 +6,8 @@ int check_num_val(int val, int min, int max)
 	return (val >= min && val <= max);
 }
 
-int check_if_int(char* error_msg)
+int check_str_if_int(char string[], char* error_msg)
 {
-	char string[10];
-	scanf("%s", string);
 	for (int i = 0; i < (int) strlen(string); i++)
 		if (!isdigit(string[i]))
 		{
@@ -18,4 +16,11 @@ int check_if_int(char* error_msg)
 		}
 			
 	return atoi(string);
+}
+
+int check_input_if_int(char* error_msg)
+{
+	char string[10];
+	scanf("%s", string);
+	return check_str_if_int(string, error_msg);
 }
