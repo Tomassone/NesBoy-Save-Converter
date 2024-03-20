@@ -5,13 +5,18 @@
 #include "pkmn_manipulation.h"
 #include "ui.h"
 
-int main()
+int main(int argc, char** argv)
 {
 	int slctd_option = 0, pkmn_choice = 0, valid = FALSE, repeat = TRUE;
 	pkmn_nes loaded_pkmn; //struttura contente la struttura di base del pokèmon [nes].
 	pkmn_gb stored_pkmn; //struttura di base del file pokèmon di seconda generazione.
+	
 	clrscr();
-	show_menu(&slctd_option); //stampo il menù e lascio scegliere all'utente cosa selezionare.
+	if (argc == 1) //programma lanciato senza argomenti.
+		slctd_option = show_menu(); //stampo il menù e lascio scegliere all'utente cosa selezionare.
+	else
+		slctd_option = select_from_shell(atoi(argv[1])); //l'utente ha già selezionato cosa fare (conversione da stringa ad intero).
+	
 	if (slctd_option == TRNSFR_PKMN)
 	{
 		do
@@ -21,6 +26,7 @@ int main()
 				printf ("Which pokemon of your party would you like to select? ");
 				scanf("%d", &pkmn_choice);
 				pkmn_choice--;
+				
 				if (pkmn_choice >= 0 && pkmn_choice <= 5) //se cioè è un numero compreso tra 0 e 5.
 				{
 					load_from_nes(pkmn_choice, &loaded_pkmn); //carico il pokèmon da convertire.
@@ -44,7 +50,9 @@ int main()
 		printf("Shutting off the program...\n");
 		printf("[Press enter.]");
 		getchar();
+		clrscr();
 	}
+	
 	return 0;
 }
 

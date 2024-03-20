@@ -17,6 +17,7 @@ void exp_conv(pkmn_gb* stored_pkmn)
 {
 	long int total_exp; //variabile che conterrà il valore totale dei punti esperienza (prima che venga diviso in modo da stare in tre byte). 
 	int expgrp[156] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 1, 1, 2, 2, 1, 1, 2, 2, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2, 4, 4, 1, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 4, 4, 4, 4, 4}; //array containing pokémons' experience types (1 = fast; 2 = medium fast; 3 = medium slow; 4 = slow)
+	
 	switch (expgrp[stored_pkmn->id_species - 1]) //uso una formula diversa a seconda del gruppo di esperienza del pkmn
 	{
 		case 1:
@@ -32,6 +33,7 @@ void exp_conv(pkmn_gb* stored_pkmn)
 			total_exp = pow((uint8_t) stored_pkmn->level, 3) * 5/4; 
 		break;
 	}
+	
 	stored_pkmn->exp[0] = (uint8_t) (total_exp >> 16) & 0xFF; //necessario perchè gli exp sono rappresentati da 3 byte (ognuno di essi può contenere valori da 0 a 255)
 	stored_pkmn->exp[1] = (uint8_t) (total_exp >> 8) & 0xFF;
 	stored_pkmn->exp[2] = (uint8_t) (total_exp >> 0) & 0xFF;

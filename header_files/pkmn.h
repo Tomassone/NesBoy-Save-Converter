@@ -9,6 +9,7 @@
     #include <time.h> //necessaria per la randomizzazione.
     #include "constants.h"
     #include "array_manipulation.h"
+    #include "ui.h"
 
     typedef struct
     {
@@ -26,7 +27,7 @@
         uint8_t id_species;
         uint8_t id_held_item;
         uint8_t id_moves[4];
-        uint16_t original_trainer_id; // bytes
+        uint16_t original_trainer_id; //2 bytes
         uint8_t exp[3]; //3 bytes
         uint16_t hp_ev_data; //2 bytes
         uint16_t attack_ev_data; //2 bytes

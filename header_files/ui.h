@@ -9,8 +9,11 @@
 
     //funzione che "pulisce" lo schermo.
     void clrscr(); 
+    
+    //funzione che gestisce l'opzione scelta prima dell'avvio del programma.
+    int select_from_shell(int slctd_option);
 
-    //funzione che stampa un menù e fa selezionare un'opzione da esso.
-    void show_menu(int* slctd_option);
+    //funzione che stampa un menù e fa selezionare un'opzione da esso (valore ritornato).
+    int show_menu();
 
 #endif

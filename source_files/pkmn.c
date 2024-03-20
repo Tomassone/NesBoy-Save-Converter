@@ -4,6 +4,7 @@
 pkmn_nes blank_pkmn_nes()
 {
 	pkmn_nes result;
+	
 	result.id_species = 0x00;
 	result.level = 0x00;
 	result.current_hp = 0x00;
@@ -11,6 +12,7 @@ pkmn_nes blank_pkmn_nes()
 	result.exp = 0x00;
 	result.id_moves[0] = result.id_moves[1] = result.id_moves[2] = result.id_moves[3] = 0x00;
 	result.pp_moves[0] = result.pp_moves[1] = result.pp_moves[2] = result.pp_moves[3] = 0x00;
+	
 	return result;
 }
 
@@ -18,6 +20,7 @@ pkmn_gb blank_pkmn_gb()
 {
 	srand(time(NULL)); //questo comando ha a che fare con la generazione casuale dei numeri, più precisamente con la gestione del tempo.
 	pkmn_gb result;
+	
 	result.id_species = 0x00;
 	result.id_held_item = 0x00;
 	result.id_moves[0] = result.id_moves[1] = result.id_moves[2] = result.id_moves[3] = 0x00;
@@ -43,6 +46,7 @@ pkmn_gb blank_pkmn_gb()
 	result.speed = 0x00;
 	result.special_attack = 0x00;
 	result.special_defense = 0x00;
+	
 	return result;
 }
 
@@ -84,12 +88,14 @@ void load_from_nes(int pkmn_id, pkmn_nes* loaded_pkmn)
 	int addr[13] = {0x33, 0x39, 0x3F, 0x4B, 0x57, 0x63, 0x69, 0x6F, 0x75, 0x7B, 0x81, 0x87, 0x8D}; //indirizzi della memoria da controllare per i pokèmon della squadra
 	FILE *np; //dichiarazione puntatore file.
 	*loaded_pkmn = blank_pkmn_nes();
+	
 	printf("\nWrite here the full path of your NES save file: ");
 	scanf("%s", filepath);
+	
 	np = fopen(filepath, "rb"); //apertura del file.
-	if(np == NULL) // se il puntatore restituisce "NULL", allora l'apertura del file non è andata a buon fine.
+	if (np == NULL) // se il puntatore restituisce "NULL", allora l'apertura del file non è andata a buon fine.
 	{
-		printf("Error! The program was not able to open the NES save file.\n");
+		printf("\nError! The program was not able to open the NES save file.\n\n");
 		exit(FILE_NOT_FOUND);
 	} 
 	else
@@ -154,6 +160,7 @@ pk2_file_structure build_pk2(pkmn_gb base)
 	uint8_t temp_player_name[] = {0x80, 0x92, 0x87, 0x50, 0x50, 0x50, 0x50};
 	uint8_t temp_middle_area[] = {0x00, 0x00, 0x00, 0x00};
 	uint8_t temp_nickname[] = {0x8F, 0x8A, 0x8C, 0x8D, 0x50, 0x50, 0x50, 0x50, 0x50, 0x50};
+	
 	temp_starting_bytes[1] = base.id_species; //il secondo byte di quelli inziali e quello rappresentante la specie del pokemon risultano essere uguali.
 	copy_array(result.starting_bytes, temp_starting_bytes, 3);
 	result.base = base;
@@ -161,6 +168,7 @@ pk2_file_structure build_pk2(pkmn_gb base)
 	copy_array(result.middle_area, temp_middle_area, 4);
 	copy_array(result.nickname, temp_nickname, 10);
 	result.closing_byte = 0x50;
+	
 	return result;
 }
 
@@ -169,13 +177,15 @@ void upload_to_gb(pkmn_gb stored_pkmn)
 	char filepath[100]; //stringa che conterrà il percorso del file da creare.
 	FILE *gp; //dichiarazione puntatore file.
 	pk2_file_structure to_be_uploated = build_pk2(stored_pkmn);
+	
 	printf("Write here the full path in which you want to save the .pk2 file: ");
 	scanf("%s", filepath);
 	getchar(); //necessario per pulire il buffer (per andare oltre il carattere invio letto).
+	
 	gp = fopen(filepath, "wb"); //apertura del file.
 	if (gp == NULL) //se il puntatore restituisce "NULL", allora l'apertura del file non è andata a buon fine.
 	{
-		printf("Error! The program was not able to create the .pk2 file.\n\n");
+		printf("\nError! The program was not able to create the .pk2 file.\n\n");
 		exit(FILE_NOT_CREATED);
 	}
 	else
