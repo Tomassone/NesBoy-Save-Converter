@@ -10,6 +10,7 @@
     #include "constants.h"
     #include "array_manipulation.h"
     #include "ui.h"
+    #include "error_handling.h"
 
     typedef struct
     {

@@ -62,13 +62,13 @@ void show_pkmn_nes(pkmn_nes loaded_pkmn)
 	printf("%d\n", loaded_pkmn.maximum_hp);
 	printf (">	exp:      	");
 	printf("%d\n", loaded_pkmn.exp);
-	printf (">	first move:	");
+	printf (">	first move (id):	");
 	printf("0x%X\n", loaded_pkmn.id_moves[0]);
-	printf (">	second move:	");
+	printf (">	second move (id):	");
 	printf("0x%X\n", loaded_pkmn.id_moves[1]);
-	printf (">	third move:	");
+	printf (">	third move (id):	");
 	printf("0x%X\n", loaded_pkmn.id_moves[2]);
-	printf (">	fourth move:	");
+	printf (">	fourth move (id):	");
 	printf("0x%X\n", loaded_pkmn.id_moves[3]);
 	printf (">	pp first move:	");
 	printf("%d\n", loaded_pkmn.pp_moves[0]);

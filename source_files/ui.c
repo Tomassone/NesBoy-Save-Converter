@@ -1,6 +1,13 @@
 
 #include "ui.h" //inclusione del corrispondente file header.
 
+void conf_dialog()
+{
+	printf("[Press enter.]");
+	getchar();
+	clrscr();
+}
+
 void clrscr()  //ho dovuto "ricreare" la funzione "clear screen", visto che non è una funzione standard di C.
 {
 	#ifdef _WIN32
@@ -23,7 +30,7 @@ int show_menu()
 		printf("Please select one of the listed options: ");
 		scanf("%d%*c", &slctd_option);
 		
-		if (slctd_option > 0 && slctd_option < 4) //se cioè è un numero compreso tra 1 e 3.
+		if (check_num_val(slctd_option, 1, 2)) //se cioè è un numero compreso tra 1 e 2.
 			repeat = FALSE;
 		else
 			printf("The selected option is not valid, please select something else.\n");
@@ -36,7 +43,7 @@ int show_menu()
 int select_from_shell(int slctd_option)
 {
 	clrscr();
-	if (slctd_option > 0 && slctd_option < 4) //se cioè è un numero compreso tra 1 e 3.
+	if (check_num_val(slctd_option, 1, 2)) //se cioè è un numero compreso tra 1 e 2.
 		return slctd_option;
 	else
 	{
