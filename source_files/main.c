@@ -3,6 +3,7 @@
 #include "constants.h"
 #include "pkmn.h"
 #include "pkmn_manipulation.h"
+#include "save_file.h"
 #include "ui.h"
 
 int main(int argc, char** argv)
@@ -42,6 +43,15 @@ int main(int argc, char** argv)
 			conf_dialog();
 		}
 		while (repeat == TRUE);
+	}
+	else if (slctd_option == FIX_CHECKSUM)
+	{
+		char filepath[50]; 
+		printf("\nWrite here the full path of your NES save file: ");
+		scanf("%s", filepath);
+		save_file loaded = blanc_save();
+		load_nes_save_file(filepath, &loaded);
+		write_nes_save_file(filepath, loaded);
 	}
 	else //se cioè è stato richiesto di chiudere il programma.
 	{

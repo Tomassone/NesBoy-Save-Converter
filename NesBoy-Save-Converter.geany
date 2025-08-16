@@ -19,7 +19,7 @@ indent_mode=2
 
 [project]
 name=NesBoy-Save-Converter
-base_path=/Users/Cesare/Documents/GitHub/NesBoy-Save-Converter/
+base_path=C:\\Users\\Cesare\\Documents\\GitHub\\NesBoy-Save-Converter
 description=
 file_patterns=
 
@@ -28,12 +28,14 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=0
-FILE_NAME_0=500;C;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fsource_files%2Fmain.c;0;4
-FILE_NAME_1=217;C++;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fheader_files%2Fui.h;0;4
-FILE_NAME_2=993;C;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fsource_files%2Fui.c;0;4
-FILE_NAME_3=611;C++;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fheader_files%2Ferror_handling.h;0;4
-FILE_NAME_4=368;C;0;EUTF-8;1;1;0;%2FUsers%2FCesare%2FDocuments%2FGitHub%2FNesBoy-Save-Converter%2Fsource_files%2Ferror_handling.c;0;4
+current_page=4
+FILE_NAME_0=0;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Carray_manipulation.c;0;4
+FILE_NAME_1=807;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cpkmn.h;0;4
+FILE_NAME_2=639;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cpkmn.c;0;4
+FILE_NAME_3=1889;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cmain.c;0;4
+FILE_NAME_4=1219;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Csave_file.c;0;4
+FILE_NAME_5=479;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Csave_file.h;0;4
+FILE_NAME_6=245;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cconstants.h;0;4
 
 [VTE]
 last_dir=/Users/Cesare
