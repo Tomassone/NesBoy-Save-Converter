@@ -6,6 +6,12 @@ save_file blanc_save()
 	save_file loaded;
 	for (int i = 0; i < SAVE_FILE_DIM; i++)
 		(loaded.current_save)[i] = 0x00;
+	loaded.player_name[0] = 'A';
+	loaded.player_name[1] = 's';
+	loaded.player_name[2] = 'h';
+	loaded.player_name[3] = '\0';
+	loaded.player_money = 0;
+	loaded.caught_pkmn = 0;
 	return loaded;
 }
 
@@ -23,8 +29,24 @@ void load_nes_save_file(char filepath[], save_file* loaded)
 		printf("\n[Your save file was successfully opened.]\n");
 		fread(loaded->current_save, sizeof(uint8_t), SAVE_FILE_DIM, fp);
 		fclose(fp); //chiusura del file.
+		loaded->player_money = (int)
+			(((loaded->current_save)[0x0C25] & 0xFF) << 16) |
+			(((loaded->current_save)[0x0C24] & 0xFF) << 8)  |
+			((loaded->current_save)[0x0C23] & 0xFF);
+		loaded->caught_pkmn = (int) (loaded->current_save)[0x0C32];
 	}
 }    
+
+void print_player_info(save_file loaded)
+{
+	printf("\n");
+	printf (">	player name:              	");
+	printf("%s\n", loaded.player_name);
+	printf (">	available money:	        ");
+	printf("%d\n", loaded.player_money);
+	printf (">	caught pokemon:	                ");
+	printf("%3d\n", loaded.caught_pkmn);
+}
 
 int calculate_checksum(save_file* loaded)
 {

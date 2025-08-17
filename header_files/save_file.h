@@ -15,6 +15,9 @@
     typedef struct
     {
         uint8_t current_save[SAVE_FILE_DIM];
+        char player_name[4];
+        int player_money;
+        int caught_pkmn;
     } save_file;
     
     //funzione per la creazione di una struttura save_file vuota.
@@ -22,6 +25,9 @@
     
     //funzione per il caricamento in memoria del salvataggio.
     void load_nes_save_file(char filepath[], save_file* loaded);
+    
+    //funzione per la stampa a schermo di informazioni relative al giocatore.
+    void print_player_info(save_file loaded);
     
     //funzione per il ricalcolo e la scrittura del nuovo checksum del salvataggio (restituisce quello vecchio).
     int calculate_checksum(save_file* loaded);
