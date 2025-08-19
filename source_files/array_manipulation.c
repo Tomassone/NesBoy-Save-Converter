@@ -16,3 +16,5 @@ void copy_array(uint8_t* destination, uint8_t* source, int dim)
 	for (i = 0; i < dim; i++)
 		destination[i] = source[i];  
 }
+
+

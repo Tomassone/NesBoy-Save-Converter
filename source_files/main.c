@@ -52,6 +52,7 @@ int main(int argc, char** argv)
 		save_file loaded = blanc_save();
 		load_nes_save_file(filepath, &loaded);
 		print_player_info(loaded);
+		print_player_bag(loaded);
 		write_nes_save_file(filepath, loaded);
 	}
 	else //se cioè è stato richiesto di chiudere il programma.

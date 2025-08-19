@@ -14,6 +14,10 @@
     #define EXIT 3
     
     //costanti relative al file di salvataggio
+    #define MAX_ITEMS 19
+    #define MAX_BALLS 4
+    #define MAX_KEY_ITEMS 11
+    #define MAX_TMS_HMS 45 
     #define SAVE_FILE_DIM 8192
 
 #endif
