@@ -12,6 +12,7 @@
     #include "array_manipulation.h"
     #include "ui.h"
     #include "error_handling.h"
+    #include "pkmn.h"
     
     typedef struct
     {
@@ -24,11 +25,13 @@
         uint8_t current_save[SAVE_FILE_DIM];
         char player_name[4];
         int player_money;
+        int seen_pkmn;
         int caught_pkmn;
         bag_item items[MAX_ITEMS];
         bag_item balls[MAX_BALLS];
         bag_item key_items[MAX_KEY_ITEMS];
         bag_item tms_hms[MAX_TMS_HMS];
+        pkmn_nes team[6];
     } save_file;
     
     //funzione per la creazione di una bag_item vuota.

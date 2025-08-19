@@ -73,6 +73,9 @@ save_file blanc_save()
 		sprintf(temp, "TM %02d", (i - 4));
 		strcpy(loaded.tms_hms[i].name, temp);
 	}
+	
+	for (int i = 0; i < 5; i++)
+		loaded.team[i] = blank_pkmn_nes();
 	return loaded;
 }
 
@@ -96,15 +99,18 @@ void load_nes_save_file(char filepath[], save_file* loaded)
 		printf("\n[Your save file was successfully opened.]\n");
 		fread(loaded->current_save, sizeof(uint8_t), SAVE_FILE_DIM, fp);
 		fclose(fp); //chiusura del file.
-		loaded->player_money = (int)
+		loaded->player_money = (int) //conversione del valore dei soldi accumulati da 3 byte binari a intero
 			(((loaded->current_save)[0x0C25] & 0xFF) << 16) |
 			(((loaded->current_save)[0x0C24] & 0xFF) << 8)  |
 			((loaded->current_save)[0x0C23] & 0xFF);
+		loaded->seen_pkmn = (int) (loaded->current_save)[0x0C31];
 		loaded->caught_pkmn = (int) (loaded->current_save)[0x0C32];
-		load_bag_section(loaded->items, MAX_ITEMS, 0x0CD4, loaded->current_save);
+		load_bag_section(loaded->items, MAX_ITEMS, 0x0CD4, loaded->current_save); //copiatura dei rispettivi valori con funzione necessaria
 		load_bag_section(loaded->balls, MAX_BALLS, 0x0CD0, loaded->current_save);
 		load_bag_section(loaded->key_items, MAX_KEY_ITEMS, 0x0CE7, loaded->current_save);
 		load_bag_section(loaded->tms_hms, MAX_TMS_HMS, 0x0CF2, loaded->current_save);
+		for (int i = 0; i < 6; i++)
+			load_from_nes(i, filepath, &(loaded->team[i]));
 	}
 }    
 
@@ -115,6 +121,8 @@ void print_player_info(save_file loaded)
 	printf("%s\n", loaded.player_name);
 	printf (">	Available money:	        ");
 	printf("%d\n", loaded.player_money);
+	printf (">	Seen pokemon:	                ");
+	printf("%3d\n", loaded.seen_pkmn);
 	printf (">	Caught pokemon:	                ");
 	printf("%3d\n", loaded.caught_pkmn);
 }

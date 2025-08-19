@@ -1,7 +1,6 @@
 
 #include <stdio.h>
 #include "constants.h"
-#include "pkmn.h"
 #include "pkmn_manipulation.h"
 #include "save_file.h"
 #include "ui.h"
@@ -9,10 +8,15 @@
 int main(int argc, char** argv)
 {
 	int slctd_option = 0, pkmn_choice = 0, valid = FALSE, repeat = TRUE;
-	pkmn_nes loaded_pkmn; //struttura contenente la struttura di base del pokèmon [nes].
+	char filepath[50]; 
+	save_file loaded = blanc_save();
 	pkmn_gb stored_pkmn; //struttura di base del file pokèmon di seconda generazione.
 	
+	printf("\nWrite here the full path of your NES save file: ");
+	scanf("%s", filepath);
+	load_nes_save_file(filepath, &loaded); //carico contenuto dei salvataggi nella rispettiva struttura in memoria.
 	clrscr();
+	
 	if (argc == 1) //programma lanciato senza argomenti.
 		slctd_option = show_menu(); //stampo il menù e lascio scegliere all'utente cosa selezionare.
 	else
@@ -30,15 +34,14 @@ int main(int argc, char** argv)
 				
 				if (check_num_val(pkmn_choice, 0, 5)) //se cioè è un numero compreso tra 0 e 5.
 				{
-					load_from_nes(pkmn_choice, &loaded_pkmn); //carico il pokèmon da convertire.
-					show_pkmn_nes(loaded_pkmn); //stampo ciò che ho caricato a schermo.
+					show_pkmn_nes(loaded.team[pkmn_choice]); //stampo ciò che ho caricato a schermo.
 					valid = TRUE;
 				}
 				else
 					printf("The selected pokemon does not exist. Please choose another one.\n");
 			}
 			valid = FALSE;
-			addr_conv(loaded_pkmn, &stored_pkmn); //effettuo la conversione della struttura.
+			addr_conv(loaded.team[pkmn_choice], &stored_pkmn); //effettuo la conversione della struttura.
 			upload_to_gb(stored_pkmn); //creo il file .pk2.
 			conf_dialog();
 		}
@@ -46,11 +49,6 @@ int main(int argc, char** argv)
 	}
 	else if (slctd_option == FIX_CHECKSUM)
 	{
-		char filepath[50]; 
-		printf("\nWrite here the full path of your NES save file: ");
-		scanf("%s", filepath);
-		save_file loaded = blanc_save();
-		load_nes_save_file(filepath, &loaded);
 		print_player_info(loaded);
 		print_player_bag(loaded);
 		write_nes_save_file(filepath, loaded);

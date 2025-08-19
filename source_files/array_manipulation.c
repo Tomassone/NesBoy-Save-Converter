@@ -1,6 +1,5 @@
 
 #include "array_manipulation.h" //inclusione del corrispondente file header.
-#include "pkmn.h"
 
 void print_array(uint8_t* array, int dim)
 {
