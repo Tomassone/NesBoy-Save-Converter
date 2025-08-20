@@ -17,6 +17,10 @@
     //funzione che stampa il menù principale e fa selezionare un'opzione da esso (valore ritornato).
     int print_main_menu();
     
+    int print_manage_player_info_menu();
+    
+    int print_edit_player_info_menu();
+    
     //funzione che stampa un menù e fa selezionare un'opzione da esso (valore ritornato).
     int print_menu(char* title, char** options, int number_of_options);
     

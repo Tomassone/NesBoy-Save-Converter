@@ -90,13 +90,13 @@ void load_from_nes(int pkmn_id, char* filepath, pkmn_nes* loaded_pkmn)
 	np = fopen(filepath, "rb"); //apertura del file.
 	if (np == NULL) // se il puntatore restituisce "NULL", allora l'apertura del file non è andata a buon fine.
 	{
-		printf("\nError! The program was not able to open the NES save file.\n\n");
+		//printf("\nError! The program was not able to open the NES save file.\n\n");
 		exit(FILE_NOT_FOUND);
 	} 
 	else
 	{
-		printf("\nYour save file was successfully opened.\n");
-		printf("\nThis is the pokemon you selected:\n\n");
+		//printf("\nYour save file was successfully opened.\n");
+		//printf("\nThis is the pokemon you selected:\n\n");
 		for (i = 0; i < 13; i++)
 		{
 			distance = addr[i] + pkmn_id; //calcolo la distanza del byte da leggere dall'inizio del file.

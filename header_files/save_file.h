@@ -46,6 +46,8 @@
     //funzione per la stampa a schermo di informazioni relative al giocatore.
     void print_player_info(save_file loaded);
     
+    void print_bag_section(bag_item* section, int dim);
+    
     //funzione per la stampa a schermo di informazioni relative alla borsa del giocatore.
     void print_player_bag(save_file loaded);
     

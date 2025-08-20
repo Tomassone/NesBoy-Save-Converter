@@ -3,7 +3,7 @@
 
 void conf_dialog()
 {
-	printf("[Press enter.]");
+	printf("[Press enter to conferm.]");
 	getchar();
 	clrscr();
 }
@@ -26,7 +26,8 @@ int print_menu(char* title, char** options, int number_of_options)
 	int slctd_option, repeat = TRUE;
 	printf("%-31s\n", title);
 	for (int i = 0; i < number_of_options; i++)
-		printf(">	%-31s\n", options[i]);
+		printf("%d>	%-31s\n", i + 1, options[i]);
+	printf("\n");
 	do
 	{
 		printf("Please select one of the listed options: ");
@@ -54,10 +55,29 @@ int print_main_menu()
 	return print_menu("NesBoy Save Converter", options, 6);
 }
 
+int print_manage_player_info_menu()
+{
+	char* options[6];
+	options[0] = "CHECK PLAYER INFORMATION";
+	options[1] = "EDIT PLAYER INFORMATION";
+	options[2] = "EXIT";
+	return print_menu("Manage player information", options, 3);
+}
+
+int print_edit_player_info_menu()
+{
+	char* options[6];
+	options[0] = "EDIT PLAYER MONEY";
+	options[1] = "EDIT PLAYER SEEN POKEMON";
+	options[2] = "EDIT PLAYER CAUGHT POKEMON";
+	options[3] = "EXIT";
+	return print_menu("Edit player information", options, 4);
+}
+
 int select_from_shell(int slctd_option)
 {
 	clrscr();
-	if (check_num_val(slctd_option, 1, 2)) //se cioè è un numero compreso tra 1 e 2.
+	if (check_num_val(slctd_option, 1, 6)) //se cioè è un numero compreso tra 1 e 6.
 		return slctd_option;
 	else
 	{

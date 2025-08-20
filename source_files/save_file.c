@@ -124,10 +124,10 @@ void print_player_info(save_file loaded)
 	printf (">	Seen pokemon:	                ");
 	printf("%3d\n", loaded.seen_pkmn);
 	printf (">	Caught pokemon:	                ");
-	printf("%3d\n", loaded.caught_pkmn);
+	printf("%3d\n\n", loaded.caught_pkmn);
 }
 
-void print_player_section(bag_item* section, int dim)
+void print_bag_section(bag_item* section, int dim)
 {
 	printf("\n");
 	for (int i = 0; i < dim; i++)
@@ -139,13 +139,13 @@ void print_player_bag(save_file loaded)
 {
 	printf("\n");
 	printf ("Items:              	");
-	print_player_section(loaded.items, MAX_ITEMS);
+	print_bag_section(loaded.items, MAX_ITEMS);
 	printf ("Balls:              	");
-	print_player_section(loaded.balls, MAX_BALLS);
+	print_bag_section(loaded.balls, MAX_BALLS);
 	printf ("Key items:              	");
-	print_player_section(loaded.key_items, MAX_KEY_ITEMS);
+	print_bag_section(loaded.key_items, MAX_KEY_ITEMS);
 	printf ("TMS and HMS:              	");
-	print_player_section(loaded.tms_hms, MAX_TMS_HMS);
+	print_bag_section(loaded.tms_hms, MAX_TMS_HMS);
 }
 
 int calculate_checksum(save_file* loaded)
@@ -192,7 +192,7 @@ void write_nes_save_file(char filepath[], save_file loaded)
 	{
 		calculate_checksum(&loaded); //ricalcolo il checksum del salvataggio.
 		fwrite(loaded.current_save, sizeof(uint8_t), SAVE_FILE_DIM, fp);
-		printf("Your save file was successfully updated.\n");
+		printf("Your save file was successfully updated.\n\n");
 		fclose(fp); //chiusura del file.
 	}
 }    

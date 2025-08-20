@@ -22,5 +22,6 @@ int check_input_if_int(char* error_msg)
 {
 	char string[10];
 	scanf("%s", string);
+	getchar();
 	return check_str_if_int(string, error_msg);
 }

@@ -8,13 +8,16 @@
     #define FALSE 0
     #define TRUE 1
 
-    //costanti relative alla gestione del menù
-    #define CHCK_PLR_INFO 1
+    //costanti relative alla gestione del menù principale
+    #define MNG_PLR_INFO 1
     #define CHCK_PLR_BAG 2
     #define CHCK_PLR_TEAM 3
     #define FIX_CHECKSUM 4
     #define TRNSFR_PKMN 5
-    #define EXIT 6
+    
+    //costanti relative alla gestione delle informazioni del giocatore
+    #define CHCK_PLR_INFO 1
+    #define EDIT_PLR_INFO 2
     
     //costanti relative al file di salvataggio
     #define MAX_ITEMS 19
