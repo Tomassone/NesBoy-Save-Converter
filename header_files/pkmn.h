@@ -69,7 +69,7 @@
     pkmn_gb blank_pkmn_gb();
 
     //funzione che stampa a schermo le informazioni relative ad un pokémon in formato nes.
-    void show_pkmn_nes(pkmn_nes loaded_pkmn);
+    void print_pkmn_nes(pkmn_nes loaded_pkmn);
 
     //funzione che estrae un pokémon in formato NES da un file di salvaggio.
 	void load_from_nes(int pkmn_id, char* filepath, pkmn_nes* loaded_pkmn);

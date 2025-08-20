@@ -50,7 +50,7 @@ pkmn_gb blank_pkmn_gb()
 	return result;
 }
 
-void show_pkmn_nes(pkmn_nes loaded_pkmn)
+void print_pkmn_nes(pkmn_nes loaded_pkmn)
 {
 	printf (">	species:       	");
 	printf("%d\n", loaded_pkmn.id_species);
@@ -95,7 +95,7 @@ void load_from_nes(int pkmn_id, char* filepath, pkmn_nes* loaded_pkmn)
 	} 
 	else
 	{
-		printf("\n[Your save file was successfully opened.]\n");
+		printf("\nYour save file was successfully opened.\n");
 		printf("\nThis is the pokemon you selected:\n\n");
 		for (i = 0; i < 13; i++)
 		{
@@ -218,7 +218,7 @@ void upload_to_gb(pkmn_gb stored_pkmn)
 		fwrite(&to_be_uploated.middle_area, sizeof(char) * 4, 1, gp);
 		fwrite(&to_be_uploated.nickname, sizeof(char) * 10, 1, gp);
 		fwrite(&to_be_uploated.closing_byte, sizeof(char), 1, gp);
-		printf("\n[Your .pk2 file was successfully created.]\n\n");
+		printf("\nYour .pk2 file was successfully created.\n\n");
 		fclose(gp); //chiusura del file
 	}
 }

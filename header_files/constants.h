@@ -9,9 +9,12 @@
     #define TRUE 1
 
     //costanti relative alla gestione del menù
-    #define TRNSFR_PKMN 1
-    #define FIX_CHECKSUM 2
-    #define EXIT 3
+    #define CHCK_PLR_INFO 1
+    #define CHCK_PLR_BAG 2
+    #define CHCK_PLR_TEAM 3
+    #define FIX_CHECKSUM 4
+    #define TRNSFR_PKMN 5
+    #define EXIT 6
     
     //costanti relative al file di salvataggio
     #define MAX_ITEMS 19

@@ -96,7 +96,7 @@ void load_nes_save_file(char filepath[], save_file* loaded)
 	} 
 	else
 	{
-		printf("\n[Your save file was successfully opened.]\n");
+		printf("\nYour save file was successfully opened.\n");
 		fread(loaded->current_save, sizeof(uint8_t), SAVE_FILE_DIM, fp);
 		fclose(fp); //chiusura del file.
 		loaded->player_money = (int) //conversione del valore dei soldi accumulati da 3 byte binari a intero
@@ -116,7 +116,7 @@ void load_nes_save_file(char filepath[], save_file* loaded)
 
 void print_player_info(save_file loaded)
 {
-	printf("\n");
+	printf("\nPlayer info:\n");
 	printf (">	Player name:              	");
 	printf("%s\n", loaded.player_name);
 	printf (">	Available money:	        ");
@@ -138,13 +138,13 @@ void print_player_section(bag_item* section, int dim)
 void print_player_bag(save_file loaded)
 {
 	printf("\n");
-	printf (">	ITEMS:              	");
+	printf ("Items:              	");
 	print_player_section(loaded.items, MAX_ITEMS);
-	printf (">	BALLS:              	");
+	printf ("Balls:              	");
 	print_player_section(loaded.balls, MAX_BALLS);
-	printf (">	KEY ITEMS:              	");
+	printf ("Key items:              	");
 	print_player_section(loaded.key_items, MAX_KEY_ITEMS);
-	printf (">	TMS and HMS:              	");
+	printf ("TMS and HMS:              	");
 	print_player_section(loaded.tms_hms, MAX_TMS_HMS);
 }
 
@@ -192,7 +192,7 @@ void write_nes_save_file(char filepath[], save_file loaded)
 	{
 		calculate_checksum(&loaded); //ricalcolo il checksum del salvataggio.
 		fwrite(loaded.current_save, sizeof(uint8_t), SAVE_FILE_DIM, fp);
-		printf("[Your save file was successfully updated.]\n");
+		printf("Your save file was successfully updated.\n");
 		fclose(fp); //chiusura del file.
 	}
 }    

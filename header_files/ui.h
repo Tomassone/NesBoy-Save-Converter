@@ -14,8 +14,11 @@
     //funzione che gestisce l'opzione scelta prima dell'avvio del programma.
     int select_from_shell(int slctd_option);
 
+    //funzione che stampa il menù principale e fa selezionare un'opzione da esso (valore ritornato).
+    int print_main_menu();
+    
     //funzione che stampa un menù e fa selezionare un'opzione da esso (valore ritornato).
-    int show_menu();
+    int print_menu(char* title, char** options, int number_of_options);
     
     //funzione che richiede la pressione di invio per confermare per poi pulire lo schermo.
     void conf_dialog();

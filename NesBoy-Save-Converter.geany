@@ -28,15 +28,17 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=1
+current_page=2
 FILE_NAME_0=1769;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Csave_file.h;0;4
-FILE_NAME_1=4618;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Csave_file.c;0;4
-FILE_NAME_2=3366;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cpkmn.c;0;4
-FILE_NAME_3=375;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cpkmn.h;0;4
-FILE_NAME_4=0;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cconstants.h;0;4
-FILE_NAME_5=1658;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cmain.c;0;4
-FILE_NAME_6=303;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cpkmn_manipulation.h;0;4
-FILE_NAME_7=0;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cpkmn_manipulation.c;0;4
+FILE_NAME_1=6641;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Csave_file.c;0;4
+FILE_NAME_2=287;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cpkmn.c;0;4
+FILE_NAME_3=2127;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cpkmn.h;0;4
+FILE_NAME_4=1415;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cui.c;0;4
+FILE_NAME_5=309;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cconstants.h;0;4
+FILE_NAME_6=668;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cui.h;0;4
+FILE_NAME_7=303;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cpkmn_manipulation.h;0;4
+FILE_NAME_8=0;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cpkmn_manipulation.c;0;4
+FILE_NAME_9=0;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cmain.c;0;4
 
 [VTE]
 last_dir=/Users/Cesare
