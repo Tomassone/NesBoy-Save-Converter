@@ -19,6 +19,11 @@
     #define CHCK_PLR_INFO 1
     #define EDIT_PLR_INFO 2
     
+    //costanti relative alla modifica delle informazioni del giocatore
+    #define EDIT_PLR_MONEY 1
+    #define EDIT_SEEN_PKMN 2
+    #define EDIT_CGHT_PKMN 3
+    
     //costanti relative al file di salvataggio
     #define MAX_ITEMS 19
     #define MAX_BALLS 4

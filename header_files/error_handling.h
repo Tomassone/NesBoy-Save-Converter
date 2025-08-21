@@ -8,6 +8,8 @@
     #include <ctype.h>
 	#include <string.h>
 	#include "constants.h"
+	
+	#define NO_ERRORS 0
 
     //costanti relative alla gestione dei file.
 

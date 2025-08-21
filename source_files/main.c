@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 		slctd_option = print_main_menu(); //stampo il menù e lascio scegliere all'utente cosa selezionare.
 	else
 	{
-		slctd_option = check_str_if_int(argv[1], "Error! The input value is not valid."); //l'utente ha già selezionato cosa fare (controllo dunque che il valore inserito sia un intero e converto il tipo).
+		slctd_option = check_str_if_int(argv[1], "Error! The input value is not valid.\n"); //l'utente ha già selezionato cosa fare (controllo dunque che il valore inserito sia un intero e converto il tipo).
 		getchar();
 	}
 	
@@ -30,7 +30,7 @@ int main(int argc, char** argv)
 		switch (slctd_option)
 		{
 			case MNG_PLR_INFO:
-				manage_player_info(loaded);
+				manage_player_info(&loaded);
 				break;
 			case CHCK_PLR_BAG:
 				print_player_bag(loaded);
@@ -69,6 +69,7 @@ int main(int argc, char** argv)
 			default:
 				printf("Shutting off the program...\n");
 				conf_dialog();
+				exit(NO_ERRORS);
 				break;
 		}
 		conf_dialog();

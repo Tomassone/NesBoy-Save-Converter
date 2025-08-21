@@ -120,7 +120,7 @@ void print_player_info(save_file loaded)
 	printf (">	Player name:              	");
 	printf("%s\n", loaded.player_name);
 	printf (">	Available money:	        ");
-	printf("%d\n", loaded.player_money);
+	printf("%3d\n", loaded.player_money);
 	printf (">	Seen pokemon:	                ");
 	printf("%3d\n", loaded.seen_pkmn);
 	printf (">	Caught pokemon:	                ");
