@@ -46,9 +46,9 @@ int print_menu(char* title, char** options, int number_of_options)
 int print_main_menu()
 {
 	char* options[6];
-	options[0] = "CHECK PLAYER INFORMATION";
+	options[0] = "MANAGE PLAYER INFORMATION";
 	options[1] = "CHECK PLAYER BAG";
-	options[2] = "CHECK PLAYER TEAM";
+	options[2] = "MANAGE PLAYER TEAM";
 	options[3] = "FIX CHECKSUM";
 	options[4] = "TRANSFER A PKMN FROM THE NES TO THE GAMEBOY";
 	options[5] = "EXIT";
@@ -57,7 +57,7 @@ int print_main_menu()
 
 int print_manage_player_info_menu()
 {
-	char* options[6];
+	char* options[3];
 	options[0] = "CHECK PLAYER INFORMATION";
 	options[1] = "EDIT PLAYER INFORMATION";
 	options[2] = "EXIT";
@@ -66,12 +66,44 @@ int print_manage_player_info_menu()
 
 int print_edit_player_info_menu()
 {
-	char* options[6];
+	char* options[4];
 	options[0] = "EDIT PLAYER MONEY";
 	options[1] = "EDIT PLAYER SEEN POKEMON";
 	options[2] = "EDIT PLAYER CAUGHT POKEMON";
 	options[3] = "EXIT";
 	return print_menu("Edit player information", options, 4);
+}
+
+int print_manage_player_team_menu()
+{
+	char* options[3];
+	options[0] = "CHECK POKEMON INFORMATION";
+	options[1] = "EDIT POKEMON INFORMATION";
+	options[2] = "EXIT";
+	return print_menu("Manage player information", options, 3);
+}
+
+int print_manage_pokemon_info_menu()
+{
+	char* options[3];
+	options[0] = "CHECK POKEMON INFORMATION";
+	options[1] = "EDIT POKEMON INFORMATION";
+	options[2] = "EXIT";
+	return print_menu("Manage pokemon information", options, 3);
+}
+
+int print_edit_pokemon_info_menu()
+{
+	char* options[8];
+	options[0] = "EDIT POKEMON SPECIES";
+	options[1] = "EDIT POKEMON LEVEL";
+	options[2] = "EDIT POKEMON EXPERIENCE POINTS";
+	options[3] = "EDIT POKEMON ID MOVE 1";
+	options[4] = "EDIT POKEMON ID MOVE 2";
+	options[5] = "EDIT POKEMON ID MOVE 3";
+	options[6] = "EDIT POKEMON ID MOVE 4";
+	options[7] = "EXIT";
+	return print_menu("Edit pokemon information", options, 8);
 }
 
 int select_from_shell(int slctd_option)

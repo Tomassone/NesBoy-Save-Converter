@@ -52,6 +52,7 @@ pkmn_gb blank_pkmn_gb()
 
 void print_pkmn_nes(pkmn_nes loaded_pkmn)
 {
+	printf("\nPokemon info:\n");
 	printf (">	species:       	");
 	printf("%d\n", loaded_pkmn.id_species);
 	printf (">	level:	        ");

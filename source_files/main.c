@@ -35,9 +35,22 @@ int main(int argc, char** argv)
 			case CHCK_PLR_BAG:
 				print_player_bag(loaded);
 				break;
-			case CHCK_PLR_TEAM:
-				for (int i = 0; i < 6; i++)
-					print_pkmn_nes(loaded.team[i]);
+			case MNG_PLR_TEAM:	
+				while (valid == FALSE) //controllo del valore inserito.
+				{
+					printf ("Which pokemon of your party would you like to select? ");
+					pkmn_choice = check_input_if_int("Error! The input value is not valid."); //controllo che il valore inserito sia un intero.
+					pkmn_choice--;
+					
+					if (check_num_val(pkmn_choice, 0, 5)) //se cioè è un numero compreso tra 0 e 5.
+					{
+						manage_pokemon_info(&loaded.team[pkmn_choice]);
+						valid = TRUE;
+					}
+					else
+						printf("The selected pokemon does not exist. Please choose another one.\n");
+				}
+				valid = FALSE;
 				break;
 			case FIX_CHECKSUM:
 				write_nes_save_file(filepath, loaded);

@@ -13,5 +13,9 @@
     void edit_player_info(save_file* loaded);
     
     void manage_player_info(save_file* loaded);
+    
+    void manage_pokemon_info(pkmn_nes* selected);
+    
+    void edit_pokemon_info(pkmn_nes* selected);
 
 #endif
