@@ -21,5 +21,8 @@
 
     //funzione che converte una struttura pkmn_nes in una struttura pkmn_gb.
     void addr_conv(pkmn_nes loaded_pkmn, pkmn_gb* stored_pkmn);
+    
+    //funzione di transferimento completa.
+    void transfer_pkmn_to_gb(pkmn_nes loaded_pkmn);
 
 #endif

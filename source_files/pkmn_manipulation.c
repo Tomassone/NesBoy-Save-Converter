@@ -127,3 +127,10 @@ void addr_conv(pkmn_nes loaded_pkmn, pkmn_gb* stored_pkmn)
 		id_conv(stored_pkmn); //conversione degli ultimi 5 pokémon del pokédex (gli unici di 2 gen --> per cui gli id non sono uguali).
 	mov_conv(stored_pkmn); //converto gli index number delle mosse.
 }
+
+void transfer_pkmn_to_gb(pkmn_nes loaded_pkmn)
+{
+	pkmn_gb stored_pkmn; //struttura di base del file pokèmon di seconda generazione.
+	addr_conv(loaded_pkmn, &stored_pkmn); //effettuo la conversione della struttura.
+	upload_to_gb(stored_pkmn); //creo il file .pk2.
+}

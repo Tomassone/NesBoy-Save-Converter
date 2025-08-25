@@ -10,10 +10,9 @@
 
     //costanti relative alla gestione del menù principale
     #define MNG_PLR_INFO 1
-    #define CHCK_PLR_BAG 2
+    #define MNG_PLR_BAG 2
     #define MNG_PLR_TEAM 3
     #define FIX_CHECKSUM 4
-    #define TRNSFR_PKMN 5
     
     //costanti relative alla gestione delle informazioni del giocatore
     #define CHCK_PLR_INFO 1
@@ -24,9 +23,20 @@
     #define EDIT_SEEN_PKMN 2
     #define EDIT_CGHT_PKMN 3
     
+    //costanti relative alle sezioni della borsa del giocatore
+    #define ITEMS 1
+    #define BALLS 2
+    #define KEY_ITEMS 3
+    #define TMS_HMS 4
+    
+    //costanti relative alla sezione della borsa del giocatore
+    #define CHCK_SCT_INFO 1
+    #define EDIT_SCT_INFO 2
+    
     //costanti relative alla gestione delle informazioni del pokemon selezionato
     #define CHCK_PKMN_INFO 1
     #define EDIT_PKMN_INFO 2
+    #define TRNSFR_PKMN 3
     
     //costanti relative alla modifica delle informazioni del pokemon selezionato
     #define EDIT_PKMN_SPECIES 1

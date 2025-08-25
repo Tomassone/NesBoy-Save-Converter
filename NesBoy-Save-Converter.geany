@@ -29,18 +29,20 @@ long_line_column=72
 
 [files]
 current_page=5
-FILE_NAME_0=581;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Csave_file.h;0;4
-FILE_NAME_1=4362;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Csave_file.c;0;4
+FILE_NAME_0=1385;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Csave_file.h;0;4
+FILE_NAME_1=4895;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Csave_file.c;0;4
 FILE_NAME_2=1735;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cpkmn.c;0;4
 FILE_NAME_3=368;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cpkmn.h;0;4
-FILE_NAME_4=4111;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cservices.c;0;4
-FILE_NAME_5=2081;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cmain.c;0;4
-FILE_NAME_6=0;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cservices.h;0;4
-FILE_NAME_7=986;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cconstants.h;0;4
-FILE_NAME_8=2871;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cui.c;0;4
-FILE_NAME_9=643;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cui.h;0;4
-FILE_NAME_10=331;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cerror_handling.c;0;4
+FILE_NAME_4=4642;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cservices.c;0;4
+FILE_NAME_5=1376;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cui.c;0;4
+FILE_NAME_6=177;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cmain.c;0;4
+FILE_NAME_7=194;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cservices.h;0;4
+FILE_NAME_8=1038;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cconstants.h;0;4
+FILE_NAME_9=0;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cui.h;0;4
+FILE_NAME_10=50;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cerror_handling.c;0;4
 FILE_NAME_11=195;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cerror_handling.h;0;4
+FILE_NAME_12=1028;C++;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Cheader_files%5Cpkmn_manipulation.h;0;4
+FILE_NAME_13=6054;C;0;EUTF-8;1;1;0;C%3A%5CUsers%5CCesare%5CDocuments%5CGitHub%5CNesBoy-Save-Converter%5Csource_files%5Cpkmn_manipulation.c;0;4
 
 [VTE]
 last_dir=/Users/Cesare

@@ -21,6 +21,10 @@
     
     int print_edit_player_info_menu();
     
+    int print_choose_player_bag_section_menu();
+    
+    int print_manage_player_bag_section_menu();
+    
     int print_manage_pokemon_info_menu();
     
     int print_edit_pokemon_info_menu();

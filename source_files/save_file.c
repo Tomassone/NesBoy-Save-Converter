@@ -127,25 +127,21 @@ void print_player_info(save_file loaded)
 	printf("%3d\n\n", loaded.caught_pkmn);
 }
 
-void print_bag_section(bag_item* section, int dim)
+void print_bag_section(bag_item* section, int dim, char* name)
 {
-	printf("\n");
+	printf("%s:\n", name);
 	for (int i = 0; i < dim; i++)
-		printf (">	%-31s %3d\n", section[i].name, section[i].amount);
+		printf ("%d>	%-31s %3d\n", i + 1, section[i].name, section[i].amount);
 	printf("\n");
 }
 
 void print_player_bag(save_file loaded)
 {
 	printf("\n");
-	printf ("Items:              	");
-	print_bag_section(loaded.items, MAX_ITEMS);
-	printf ("Balls:              	");
-	print_bag_section(loaded.balls, MAX_BALLS);
-	printf ("Key items:              	");
-	print_bag_section(loaded.key_items, MAX_KEY_ITEMS);
-	printf ("TMS and HMS:              	");
-	print_bag_section(loaded.tms_hms, MAX_TMS_HMS);
+	print_bag_section(loaded.items, MAX_ITEMS, "Items");
+	print_bag_section(loaded.balls, MAX_BALLS, "Balls");
+	print_bag_section(loaded.key_items, MAX_KEY_ITEMS, "Key items");
+	print_bag_section(loaded.tms_hms, MAX_TMS_HMS, "TMs and HMs");
 }
 
 int calculate_checksum(save_file* loaded)
