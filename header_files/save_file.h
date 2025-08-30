@@ -48,14 +48,23 @@
     
     void print_bag_section(bag_item* section, int dim, char* name);
     
+    void load_bag_section(bag_item* section, int dim, int offset, uint8_t* save_dump);
+    
+    void upload_bag_section(bag_item* section, int dim, int offset, uint8_t* save_dump);
+    
+    void upload_pkmn_nes(pkmn_nes loaded_pkmn, int team_position, save_file* loaded);
+    
     //funzione per la stampa a schermo di informazioni relative alla borsa del giocatore.
     void print_player_bag(save_file loaded);
     
     //funzione per il ricalcolo e la scrittura del nuovo checksum del salvataggio (restituisce quello vecchio).
     int calculate_checksum(save_file* loaded);
     
+    //funzione per la trascrizione dei cambiamenti effettuati dall'utente all'interno della copia locale del file di salvataggio.
+    void save_changes(save_file* loaded);
+    
     //funzione per la scrittura in memoria del salvataggio.
-    void write_nes_save_file(char filepath[], save_file loaded);
+    void upload_nes_save_file(char filepath[], save_file loaded);
 
 #endif
 

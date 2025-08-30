@@ -12,7 +12,7 @@
     #define MNG_PLR_INFO 1
     #define MNG_PLR_BAG 2
     #define MNG_PLR_TEAM 3
-    #define FIX_CHECKSUM 4
+    #define SAVE_CHANGES 4
     
     //costanti relative alla gestione delle informazioni del giocatore
     #define CHCK_PLR_INFO 1

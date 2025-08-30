@@ -82,9 +82,9 @@ void print_pkmn_nes(pkmn_nes loaded_pkmn)
 	printf("\n");
 }
 
-void load_from_nes(int pkmn_id, char* filepath, pkmn_nes* loaded_pkmn)
+void load_pkmn_nes(int pkmn_id, char* filepath, pkmn_nes* loaded_pkmn)
 {
-	int i, distance = 0;
+	int offset = 0;
 	int addr[13] = {0x33, 0x39, 0x3F, 0x4B, 0x57, 0x63, 0x69, 0x6F, 0x75, 0x7B, 0x81, 0x87, 0x8D}; //indirizzi della memoria da controllare per i pokèmon della squadra
 	FILE *np; //dichiarazione puntatore file.
 	
@@ -98,10 +98,10 @@ void load_from_nes(int pkmn_id, char* filepath, pkmn_nes* loaded_pkmn)
 	{
 		//printf("\nYour save file was successfully opened.\n");
 		//printf("\nThis is the pokemon you selected:\n\n");
-		for (i = 0; i < 13; i++)
+		for (int i = 0; i < 13; i++)
 		{
-			distance = addr[i] + pkmn_id; //calcolo la distanza del byte da leggere dall'inizio del file.
-			fseek(np, distance, SEEK_SET); //posiziono correttamente la testina di lettura.
+			offset = addr[i] + pkmn_id; //calcolo la distanza del byte da leggere dall'inizio del file.
+			fseek(np, offset, SEEK_SET); //posiziono correttamente la testina di lettura.
 			switch (i)
 			{
 				case 0:
@@ -168,7 +168,7 @@ pk2_file_structure build_pk2(pkmn_gb base)
 	return result;
 }
 
-void upload_to_gb(pkmn_gb stored_pkmn)
+void upload_pkmn_gb(pkmn_gb stored_pkmn)
 {
 	char filepath[100]; //stringa che conterrà il percorso del file da creare.
 	FILE *gp; //dichiarazione puntatore file.

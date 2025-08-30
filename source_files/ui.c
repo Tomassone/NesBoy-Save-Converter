@@ -49,7 +49,7 @@ int print_main_menu()
 	options[0] = "MANAGE PLAYER INFORMATION";
 	options[1] = "MANAGE PLAYER BAG";
 	options[2] = "MANAGE PLAYER TEAM";
-	options[3] = "FIX CHECKSUM";
+	options[3] = "SAVE CHANGES TO SAVE FILE";
 	options[4] = "EXIT";
 	return print_menu("NesBoy Save Editor", options, 5);
 }

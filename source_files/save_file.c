@@ -85,6 +85,12 @@ void load_bag_section(bag_item* section, int dim, int offset, uint8_t* save_dump
 		section[i].amount = (int) save_dump[i + offset];
 }
 
+void upload_bag_section(bag_item* section, int dim, int offset, uint8_t* save_dump)
+{
+	for (int i = 0; i < dim; i++) 
+		save_dump[i + offset] = (uint8_t) section[i].amount;
+}
+
 void load_nes_save_file(char filepath[], save_file* loaded)
 {
 	FILE *fp; //dichiarazione puntatore file.
@@ -110,7 +116,7 @@ void load_nes_save_file(char filepath[], save_file* loaded)
 		load_bag_section(loaded->key_items, MAX_KEY_ITEMS, 0x0CE7, loaded->current_save);
 		load_bag_section(loaded->tms_hms, MAX_TMS_HMS, 0x0CF2, loaded->current_save);
 		for (int i = 0; i < 6; i++)
-			load_from_nes(i, filepath, &(loaded->team[i]));
+			load_pkmn_nes(i, filepath, &(loaded->team[i]));
 	}
 }    
 
@@ -175,7 +181,81 @@ int calculate_checksum(save_file* loaded)
     return old_checksum;
 }
 
-void write_nes_save_file(char filepath[], save_file loaded)
+void upload_pkmn_nes(pkmn_nes loaded_pkmn, int team_position, save_file* loaded)
+{
+	int offset = 0;
+	int addr[13] = {0x33, 0x39, 0x3F, 0x4B, 0x57, 0x63, 0x69, 0x6F, 0x75, 0x7B, 0x81, 0x87, 0x8D}; //indirizzi della memoria da controllare per i pokèmon della squadra
+
+	for (int i = 0; i < 13; i++)
+	{
+		offset = addr[i] + team_position; //calcolo la distanza del byte da leggere dall'inizio del file.
+		switch (i)
+		{
+			case 0:
+				loaded->current_save[offset] = (uint8_t) loaded_pkmn.id_species;
+				break;
+			case 1:
+				loaded->current_save[offset] = (uint8_t) loaded_pkmn.level;
+				break;
+			case 2:
+				loaded->current_save[offset] = (uint8_t) loaded_pkmn.current_hp;
+				break;
+			case 3:
+				loaded->current_save[offset] = (uint8_t) loaded_pkmn.maximum_hp;
+				break;
+			case 4:
+				loaded->current_save[offset] = (uint8_t) loaded_pkmn.exp;
+				break;
+			case 5:
+				loaded->current_save[offset] = (uint8_t) loaded_pkmn.id_moves[0];
+				break;
+			case 6:
+				loaded->current_save[offset] = (uint8_t) loaded_pkmn.id_moves[1];
+				break;
+			case 7:
+				loaded->current_save[offset] = (uint8_t) loaded_pkmn.id_moves[2];
+				break;
+			case 8:
+				loaded->current_save[offset] = (uint8_t) loaded_pkmn.id_moves[3];
+				break;
+			case 9:
+				loaded->current_save[offset] = (uint8_t) loaded_pkmn.pp_moves[0];
+				break;
+			case 10:
+				loaded->current_save[offset] = (uint8_t) loaded_pkmn.pp_moves[1];
+				break;
+			case 11:
+				loaded->current_save[offset] = (uint8_t) loaded_pkmn.pp_moves[2];
+				break;
+			case 12:
+				loaded->current_save[offset] = (uint8_t) loaded_pkmn.pp_moves[3];
+				break;
+		}
+	}
+}
+
+
+void save_changes(save_file* loaded)
+{
+	//conversione del valore dei soldi accumulati da intero a 3 byte binari
+	loaded->current_save[0x0C23] = (uint8_t)loaded->player_money & 0xFF;
+	loaded->current_save[0x0C24] = (uint8_t)(loaded->player_money & 0xFF00) >> 8;
+	loaded->current_save[0x0C25] = (uint8_t)(loaded->player_money & 0xFF0000) >> 16;		
+		
+	loaded->current_save[0x0C31] = (uint8_t) loaded->seen_pkmn; 
+	loaded->current_save[0x0C32] = (uint8_t) loaded->caught_pkmn;
+	
+	//copiatura dei rispettivi valori con funzione necessaria
+	upload_bag_section(loaded->items, MAX_ITEMS, 0x0CD4, loaded->current_save); 
+	upload_bag_section(loaded->balls, MAX_BALLS, 0x0CD0, loaded->current_save);
+	upload_bag_section(loaded->key_items, MAX_KEY_ITEMS, 0x0CE7, loaded->current_save);
+	upload_bag_section(loaded->tms_hms, MAX_TMS_HMS, 0x0CF2, loaded->current_save);
+	
+	for (int i = 0; i < 6; i++)
+		upload_pkmn_nes(loaded->team[i], i, loaded);
+}
+
+void upload_nes_save_file(char filepath[], save_file loaded)
 {
 	FILE *fp; //dichiarazione puntatore file.
 	fp = fopen(filepath, "wb"); //apertura del file.
@@ -186,6 +266,7 @@ void write_nes_save_file(char filepath[], save_file loaded)
 	} 
 	else
 	{
+		save_changes(&loaded);
 		calculate_checksum(&loaded); //ricalcolo il checksum del salvataggio.
 		fwrite(loaded.current_save, sizeof(uint8_t), SAVE_FILE_DIM, fp);
 		printf("Your save file was successfully updated.\n\n");

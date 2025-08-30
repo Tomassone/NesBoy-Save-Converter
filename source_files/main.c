@@ -37,8 +37,8 @@ int main(int argc, char** argv)
 			case MNG_PLR_TEAM:	
 				choose_pokemon_from_team(&loaded);
 				break;
-			case FIX_CHECKSUM:
-				write_nes_save_file(filepath, loaded);
+			case SAVE_CHANGES:
+				upload_nes_save_file(filepath, loaded);
 				break;
 			default:
 				printf("Shutting off the program...\n");

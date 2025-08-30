@@ -132,5 +132,5 @@ void transfer_pkmn_to_gb(pkmn_nes loaded_pkmn)
 {
 	pkmn_gb stored_pkmn; //struttura di base del file pokèmon di seconda generazione.
 	addr_conv(loaded_pkmn, &stored_pkmn); //effettuo la conversione della struttura.
-	upload_to_gb(stored_pkmn); //creo il file .pk2.
+	upload_pkmn_gb(stored_pkmn); //creo il file .pk2.
 }
