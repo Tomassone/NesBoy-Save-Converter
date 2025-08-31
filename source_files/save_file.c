@@ -188,7 +188,7 @@ void upload_pkmn_nes(pkmn_nes loaded_pkmn, int team_position, save_file* loaded)
 
 	for (int i = 0; i < 13; i++)
 	{
-		offset = addr[i] + team_position; //calcolo la distanza del byte da leggere dall'inizio del file.
+		offset = addr[i] + team_position + 0x0C00; //calcolo la distanza del byte da leggere dall'inizio del file.
 		switch (i)
 		{
 			case 0:
