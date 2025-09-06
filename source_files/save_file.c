@@ -122,7 +122,7 @@ void load_nes_save_file(char filepath[], save_file* loaded)
 
 void print_player_info(save_file loaded)
 {
-	printf("\nPlayer info:\n");
+	printf("Player info:\n");
 	printf (">	Player name:              	");
 	printf("%s\n", loaded.player_name);
 	printf (">	Available money:	        ");
