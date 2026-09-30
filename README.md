@@ -1,4 +1,9 @@
 # NesBoy-Save-Converter
+
+<p align="center">
+  <img src="screen.jpg" alt="Game Screenshot" width="400">
+</p>
+
 A tool which is able to transfer pokémon from Lei Dian Huang Bi Ka Qiu Chuan Shuo (an unlicenced NES port of Pokémon Yellow) to the international releases of Pokémon Gold, Silver and Crystal.
 
 It now also works as a save editor for the game.
