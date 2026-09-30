@@ -1,3 +1,27 @@
+# Build artifacts
+*.o
+*.a
+*.d
+*.so
+*.dll
+*.dylib
+*.exe
 
-NesBoy-Save-Converter.geany
+# Build directories
+/bin/
+/build/
+
+# IDEs
+.vscode/
+.idea/
+
+# Executable
+NesBoy-Save-Converter
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# Temporary files
+*~
+*.swp
