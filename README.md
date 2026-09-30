@@ -5,4 +5,5 @@ It now also works as a save editor for the game.
 
 I have only tested it with the English version of the NES game, but it should also work with the Chinese one.
 
-Here's a video demonstration: https://youtu.be/K4W-v9snDBE.
+Here's an old [video demonstration](https://youtu.be/K4W-v9snDBE).
+Here you can find some notes about the game's [file structure](file_structure_notes.md).
